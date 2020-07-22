@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lwz.demo.mapper.StudentMapper">
+
+    <!-- 通过username加载用户信息· -->
+    <select id="loadUserByName" resultType="user">
+        select * from user where nickname = #{username}
+    </select>
+
+    <!-- 添加用户 -->
+    <insert id="reg" useGeneratedKeys="true" keyProperty="id">
+        insert into user set username=#{username},password=#{password},nickname=#{nickname};
+    </insert>
+
+    <!-- 通过用户id更新用户电子邮件 -->
+    <update id="updateUserEmail">
+        update user set email = #{email} where id = #{id}
+    </update>
+
+    <!-- 通过用户昵称获取用户信息-->
+
+    <!-- 获取所有用户角色 -->
+    <select id="getAllRole">
+        select * from roles_user;
+    </select>
+
+    <!-- 通过用户id更新用户的权限 -->
+    <update id="updateUserEnabled">
+        update user set enabled = #{enabled} where id = #{uid}
+    </update>
+
+    <!-- 通过id删除用户 -->
+    <delete id="deleteUserById">
+        delete from user where id = #{id}
+    </delete>
+
+    <!-- 通过id删除用户角色 -->
+    <delete id="deleteUserRolesByUid">
+        delete from roles_user where uid = #{id}
+    </delete>
+
+    <!-- 通过用户id设置用户角色 -->
+    <insert id="setUserRoles">
+        insert into roles_user(rid, uid) values
+        <foreach collection="rids" separator="," item="rid">
+            (#{rid},#{id})
+        </foreach>
+    </insert>
+
+    <!-- 通过id获取用户 -->
+
+
+</mapper>
