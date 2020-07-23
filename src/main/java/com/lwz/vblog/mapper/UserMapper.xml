@@ -17,8 +17,6 @@
         update user set email = #{email} where id = #{id}
     </update>
 
-    <!-- 通过用户昵称获取用户信息-->
-
     <!-- 获取所有用户角色 -->
     <select id="getAllRole">
         select * from roles_user;
@@ -46,8 +44,42 @@
             (#{rid},#{id})
         </foreach>
     </insert>
-
+    
     <!-- 通过id获取用户 -->
+    <select id="getUserById" resultMap="BaseResultMap">
+        SELECT u.*, r.`id` AS rid, r.`name` AS rname FROM user u, roles r, roles_user ru WHERE u.`id`=ru.`uid` AND
+        r.`id`=ru.`rid` AND u.`id`=#{id}
+    </select>
 
+    <!-- LWZ TODO : 2020/7/23  -->
+    <!-- 通过用户昵称获取用户信息的NOT IN过滤条件是什么？ -->
+    <!-- 通过用户昵称获取用户信息-->
+    <select id="getUserByNickname" resultMap="BaseResultMap">
+        SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,roles r,roles_user ru WHERE u.`id`=ru.`uid` AND
+        r.`id`=ru.`rid` AND u.`id` NOT IN(SELECT u.`id` FROM user u,roles_user ru WHERE u.`id`=ru.`uid` AND ru.`rid`=1)
+        <choose>
+            <when test="nickname!=null and nickname!=''">
+                and u.nickname like concat('%',#{nickname},'%') ORDER BY u.`id`
+            </when>
+            <otherwise>
+                ORDER BY u.`id` limit 20
+            </otherwise>
+        </choose>
+    </select>
+    
+    <resultMap id="BaseResultMap" type="user">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="nickname" property="nickname"/>
+        <result column="password" property="password"/>
+        <result column="enabled" property="enabled"/>
+        <result column="email" property="email"/>
+        <result column="userface" property="userface"/>
+        <result column="regTime" property="regTime"/>
+        <collection property="roles" ofType="role">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+        </collection>
+    </resultMap>
 
 </mapper>
