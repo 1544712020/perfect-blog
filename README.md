@@ -3,10 +3,6 @@
 #### 介绍
 vueblog项目使用的主要技术是SpringBoot+SpringSecurity+MyBatis+Vue，主要功能是用户管理和用户博客管理。
 
-#### 软件架构
-软件架构说明
-
-
 #### 安装教程
 
 1.  xxxx
