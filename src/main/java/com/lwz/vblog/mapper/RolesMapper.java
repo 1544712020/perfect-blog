@@ -6,8 +6,4 @@ package com.lwz.vblog.mapper;
  */
 public interface RolesMapper {
 
-    public static void main(String[] args) {
-        System.out.println("test");
-    }
-
 }
