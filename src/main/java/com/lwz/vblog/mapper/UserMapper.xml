@@ -51,16 +51,17 @@
         r.`id`=ru.`rid` AND u.`id`=#{id}
     </select>
 
-    <!-- LWZ TODO : 2020/7/23  -->
-    <!-- 通过用户昵称获取用户信息的NOT IN过滤条件是什么？ -->
+    <!-- 通过用户昵称获取用户信息的NOT IN过滤条件是除去超级用户管理员 -->
     <!-- 通过用户昵称获取用户信息-->
     <select id="getUserByNickname" resultMap="BaseResultMap">
         SELECT u.*,r.`id` AS rid,r.`name` AS rname FROM user u,roles r,roles_user ru WHERE u.`id`=ru.`uid` AND
         r.`id`=ru.`rid` AND u.`id` NOT IN(SELECT u.`id` FROM user u,roles_user ru WHERE u.`id`=ru.`uid` AND ru.`rid`=1)
         <choose>
+        /*  当用户昵称不为空时使用用户昵称检索用户信息 */
             <when test="nickname!=null and nickname!=''">
                 and u.nickname like concat('%',#{nickname},'%') ORDER BY u.`id`
             </when>
+            /*  当用户昵称为空时通过用户id来排列获取前20个用户 */
             <otherwise>
                 ORDER BY u.`id` limit 20
             </otherwise>
