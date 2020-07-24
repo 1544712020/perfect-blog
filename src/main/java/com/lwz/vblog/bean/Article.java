@@ -26,6 +26,7 @@ public class Article {
     private Long uid;
     private Timestamp publishDate;
     private Integer state;
+    /**文章页面浏览次数*/
     private Integer pageView;
     private Timestamp editTime;
 

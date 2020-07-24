@@ -3,7 +3,6 @@ package com.lwz.vblog.mapper;
 import com.lwz.vblog.bean.Article;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 
@@ -83,18 +82,13 @@ public interface ArticleMapper {
     Article getArticleById(Long aid);
 
     /**
-     * LWZ TODO : 2020/7/24
-     * 此接口有何意义？
-     */
-    /**
-     *
+     * 通过用户id获取用户访问增长量
      * @param aid
      */
     void pvIncrement(Long aid);
 
     /**
-     * LWZ TODO : 2020/7/24
-     * 此接口有何意义？
+     * 获取每天用户访问量数据
      */
     void pvStatisticsPerDay();
 
@@ -106,7 +100,7 @@ public interface ArticleMapper {
     List<String> getCategories(Long uid);
 
     /**
-     * 通过用户id获取数据
+     * 通过用户id获取用户文章访问数据
      * @param uid
      * @return
      */
