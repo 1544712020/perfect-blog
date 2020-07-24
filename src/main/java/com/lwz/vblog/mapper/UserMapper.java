@@ -2,6 +2,7 @@ package com.lwz.vblog.mapper;
 
 import com.lwz.vblog.bean.Role;
 import com.lwz.vblog.bean.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.List;
  * @author Lw中
  * @date 2020/7/22 20:34
  */
+
+@Mapper
 public interface UserMapper {
 
     /**

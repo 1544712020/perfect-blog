@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lwz.demo.mapper.StudentMapper">
+
+    <select id="getAllCategories" resultType="category">
+        select * from category;
+    </select>
+
+    <!-- LWZ TODO : 2020/7/24 -->
+    <!-- 为什么传入的collection是字符串数组而category表中的rd是int型，会自动转换类型？ -->
+    <delete id="deleteCategoryByIds">
+        delete from category where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="updateCategoryById" parameterType="category">
+        update category set cateName = #{cateName} where id = #{id}
+    </update>
+
+    <insert id="addCategory" parameterType="category">
+        insert into category set date = #{date}, cateName = #{cateName}
+    </insert>
+
 </mapper>
