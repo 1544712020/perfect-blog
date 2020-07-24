@@ -14,6 +14,8 @@
         </foreach>
     </insert>
 
+    <!-- LWZ TODO : 2020/7/24 -->
+    <!-- 为什么查询结果会是List<Long>-->
     <select id="getTagsIdByTagName" resultType="long">
         select id from tags where tagName in
         <foreach collection="tagNames" item="tagName" separator="," open="(" close=")">
