@@ -67,7 +67,6 @@
             </otherwise>
         </choose>
     </select>
-    
     <resultMap id="BaseResultMap" type="user">
         <id column="id" property="id"/>
         <result column="username" property="username"/>

@@ -79,6 +79,8 @@
         LEFT JOIN category c ON a.`cid`=c.`id`
         WHERE a.id=#{aid}
     </select>
+    <!-- LWZ TODO : 2020/7/25  -->
+    <!-- 使用一对一时为什么可以直接使用未知属性未知列 -->
     <resultMap id="BaseResultMap" type="article">
         <id column="id" property="id"/>
         <result column="title" property="title"/>
@@ -93,7 +95,7 @@
         <result column="summary" property="summary"/>
         <result column="nickname" property="nickname"/>
         <result column="cateName" property="cateName"/>
-        <collection property="tags" ofType="org.sang.bean.Tags" column="tagName">
+        <collection property="tags" ofType="tags" column="tagName">
             <id property="id" column="tid"/>
             <result property="tagName" column="tagName"/>
         </collection>
