@@ -19,7 +19,7 @@
 
     <!-- 获取所有用户角色 -->
     <select id="getAllRole">
-        select * from roles_user;
+        select * from roles;
     </select>
 
     <!-- 通过用户id更新用户的权限 -->
