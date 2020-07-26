@@ -31,11 +31,14 @@ public class ArticleService {
      */
     public int addNewArticle(Article article) {
         //处理文章摘要
+        // 如果文章没有摘要
         if (article.getSummary() ==null || "".equals(article.getSummary())) {
             //直接截取
             String stripHtml = stripHtml(article.getHtmlContent());
+            // 截取文章内容的前面部分充当摘要
             article.setSummary(stripHtml.substring(0, stripHtml.length() > 50 ? 50 : stripHtml.length()));
         }
+        // 如果文章的id为-1，将文章插入数据库
         if (article.getId() == -1) {
             //添加操作
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -56,6 +59,7 @@ public class ArticleService {
                 }
             }
             return i;
+            // 如果文章已存在数据库中，对文章进行更新操作
         } else {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             if (article.getState() == 1) {
