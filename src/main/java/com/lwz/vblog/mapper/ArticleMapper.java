@@ -88,7 +88,7 @@ public interface ArticleMapper {
     void pvIncrement(Long aid);
 
     /**
-     * 获取每天用户访问量数据
+     * 给文章添加每天用户访问量数据
      */
     void pvStatisticsPerDay();
 
