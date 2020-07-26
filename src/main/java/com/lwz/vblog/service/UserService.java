@@ -82,7 +82,7 @@ public class UserService implements UserDetailsService {
 
     /**
      * LWZ TODO : 2020/7/25
-     * 通过工具类获取当前登录用户id，根据id修改用户的邮箱
+     * 通过工具类util获取当前登录用户id，根据id修改用户的邮箱
      */
     public int updateUserEmail(String email) {
         return 0;

@@ -21,20 +21,39 @@ public class CategoryService {
     @Autowired
     CategoryMapper categoryMapper;
 
+    /**
+     * 获取所有的文章类别
+     * @return
+     */
     public List<Category> getAllCategories() {
         return categoryMapper.getAllCategories();
     }
 
+    /**
+     * 批量删除文章类别
+     * @param ids
+     * @return
+     */
     public boolean deleteCategoryByIds(String ids) {
         String[] split = ids.split(",");
         int result = categoryMapper.deleteCategoryByIds(split);
         return result == split.length;
     }
 
+    /**
+     *  通过id更新文章类别
+     * @param category
+     * @return
+     */
     public int updateCategoryById(Category category) {
         return categoryMapper.updateCategoryById(category);
     }
 
+    /**
+     * 添加文章类别
+     * @param category
+     * @return
+     */
     public int addCategory(Category category) {
         category.setDate(new Timestamp(System.currentTimeMillis()));
         return categoryMapper.addCategory(category);
