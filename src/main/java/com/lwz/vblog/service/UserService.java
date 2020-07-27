@@ -35,10 +35,6 @@ public class UserService implements UserDetailsService {
     /**
      * 通过用户名查询用户
      */
-    /**
-     * LWZ TODO : 2020/7/25
-     * security中此方法有何特殊之处
-     */
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userMapper.loadUserByName(s);
@@ -46,7 +42,7 @@ public class UserService implements UserDetailsService {
             // 避免返回null，这里返回一个不含有任何值的User对象，在后期的密码比对过程中一样会验证失败
             return new User();
         }
-        //查询用户的角色信息，并返回存入user中
+        //查询用户的角色信息，并返回存入user实体中（因为角色信息是用中间表存储的，需要分开查询）
         List<Role> roles = rolesMapper.getRolesByUid(user.getId());
         user.setRoles(roles);
         return user;

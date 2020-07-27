@@ -11,7 +11,7 @@
         </foreach>
     </insert>
 
-    <select id="addRoles" resultType="role">
+    <select id="getRolesByUid" resultType="role">
         select r.* from roles r, roles_user ru where r.id = ru.rid and ru.uid = #{uid}
     </select>
 
