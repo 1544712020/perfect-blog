@@ -12,7 +12,12 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 /**
- * Created by sang on 2017/12/25.
+ * @author 15447
+ *
+ * TypeHandler作用：将预处理语句中传入的参数从javaType(Java类型)转换为jdbcType(JDBC类型)，
+ * 或者从数据库中取出结果时将jdbcType转换为javaType
+ * @MappedJdbcTypes注解配置jdbc类型
+ * @MappedTypes定义的是JavaType的数据类型，描述了哪些Java类型可被拦截
  */
 @MappedJdbcTypes(JdbcType.DATE)
 @MappedTypes(String.class)
@@ -39,3 +44,5 @@ public class DateTypeHandler implements TypeHandler<String> {
         return sdf.format(cs.getDate(columnIndex));
     }
 }
+
+

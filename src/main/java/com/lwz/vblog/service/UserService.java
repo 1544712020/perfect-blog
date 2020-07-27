@@ -4,6 +4,7 @@ import com.lwz.vblog.bean.Role;
 import com.lwz.vblog.bean.User;
 import com.lwz.vblog.mapper.RolesMapper;
 import com.lwz.vblog.mapper.UserMapper;
+import com.lwz.vblog.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -81,11 +82,12 @@ public class UserService implements UserDetailsService {
     }
 
     /**
-     * LWZ TODO : 2020/7/25
-     * 通过工具类util获取当前登录用户id，根据id修改用户的邮箱
+     *
+     * @param email
+     * @return
      */
     public int updateUserEmail(String email) {
-        return 0;
+        return userMapper.updateUserEmail(email, Util.getCurrentUser().getId());
     }
 
     /**

@@ -130,12 +130,7 @@ public class ArticleService {
                                    Integer count, Integer page,
                                    String keywords) {
         int start = (page -1) * count;
-        // 通过工具类获取当前用户id
-        /**
-         * LWZ TODO : 2020/7/26
-         *
-         */
-        Long uid = 0L /*Util.getCurrentUser().getId()*/;
+        Long uid = Util.getCurrentUser().getId();
         System.out.println(articleMapper.getArticleBySate(1,1,1, 6L, null).get(0).getUid());
         return articleMapper.getArticleBySate(state, start, count, uid,keywords);
     }
@@ -183,24 +178,18 @@ public class ArticleService {
     }
 
     /**
-     * LWZ TODO : 2020/7/26
-     * 通过工具类完成以下功能
-     */
-    /**
      * 获取最近七天的日期
      * @return
      */
     public List<String> getCategories() {
-//        return articleMapper.getCategories(Util.getCurrentUser().getId());
-        return null;
+        return articleMapper.getCategories(Util.getCurrentUser().getId());
     }
     /**
      * 获取最近七天的数据
      * @return
      */
     public List<Integer> getDataStatistics() {
-//        return articleMapper.getDataStatistics(Util.getCurrentUser().getId());
-        return null;
+        return articleMapper.getDataStatistics(Util.getCurrentUser().getId());
     }
 
 }
