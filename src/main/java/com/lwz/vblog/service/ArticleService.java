@@ -152,6 +152,7 @@ public class ArticleService {
      * @return
      */
     int updateArticleState(Long aids[], Integer state) {
+        // 如果文章在回收站，将文章删除
         if (state == 2) {
             return articleMapper.deleteArticleById(aids);
         } else {

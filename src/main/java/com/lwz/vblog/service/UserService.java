@@ -33,6 +33,10 @@ public class UserService implements UserDetailsService {
     PasswordEncoder passwordEncoder;
 
     /**
+     * LWZ TODO : 2020/7/27
+     * 为什么返回的是UserDetails
+     */
+    /**
      * 通过用户名查询用户
      */
     @Override
@@ -67,7 +71,7 @@ public class UserService implements UserDetailsService {
         long result = userMapper.reg(user);
         //配置用户的角色，默认都是普通用户
         String[] roles = new String[]{"2"};
-        // 向中间表插入关联数据
+        // 向role_user中间表插入关联数据
         int i = rolesMapper.addRoles(roles, user.getId());
         boolean b = i == roles.length && result == 1;
         if (b) {
