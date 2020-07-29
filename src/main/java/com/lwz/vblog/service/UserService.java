@@ -28,7 +28,7 @@ public class UserService implements UserDetailsService {
     UserMapper userMapper;
     @Autowired
     RolesMapper rolesMapper;
-    /** 此类用于加密 */
+    /** 注入此类用于加密 */
     @Autowired
     PasswordEncoder passwordEncoder;
 
