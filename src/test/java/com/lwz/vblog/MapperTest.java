@@ -7,6 +7,8 @@ import com.lwz.vblog.bean.User;
 import com.lwz.vblog.service.ArticleService;
 import com.lwz.vblog.service.CategoryService;
 import com.lwz.vblog.service.UserService;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -77,10 +81,40 @@ public class MapperTest {
 //        int i = userService.updateUserRoles(ids, 21L);
 //        System.out.println(i);
 
-        //  删除用户
-        int i = userService.deleteUserById(21L);
-        System.out.println(i);
+        //  删除用户测试成功
+//        int i = userService.deleteUserById(21L);
+//        System.out.println(i);
 
+    }
+
+    @Before
+    public void testCategory() {
+        //  获取所有的文章类别测试成功
+//        List<Category> allCategories = categoryService.getAllCategories();
+//        for (Category category : allCategories) {
+//            System.out.println(category.getCateName());
+//        }
+        // 添加文章类别测试成功
+//        Category category = new Category();
+//        category.setCateName("励志文摘");
+//        int i = categoryService.addCategory(category);
+//        System.out.println(i);
+
+        // 通过id更新文章类别测试成功
+//        Category category = new Category();
+//        category.setId(66L);
+//        category.setCateName("励志文章");
+//        int i = categoryService.updateCategoryById(category);
+//        System.out.println(i);
+
+        // 批量删除文章类别测试成功
+//        boolean b = categoryService.deleteCategoryByIds("66,67");
+//        System.out.println(b);
+    }
+
+    @After
+    public void testArticle() {
+        
     }
 
 }

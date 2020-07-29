@@ -55,6 +55,10 @@ public class CategoryService {
      * @return
      */
     public int addCategory(Category category) {
+        /**
+         * LWZ TODO : 2020/7/29
+         * 为何这样设置时间
+         */
         category.setDate(new Timestamp(System.currentTimeMillis()));
         return categoryMapper.addCategory(category);
     }
