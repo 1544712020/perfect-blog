@@ -4,6 +4,7 @@ import com.lwz.vblog.bean.Article;
 import com.lwz.vblog.bean.Category;
 import com.lwz.vblog.bean.Role;
 import com.lwz.vblog.bean.User;
+import com.lwz.vblog.mapper.ArticleMapper;
 import com.lwz.vblog.service.ArticleService;
 import com.lwz.vblog.service.CategoryService;
 import com.lwz.vblog.service.UserService;
@@ -38,6 +39,8 @@ public class MapperTest {
     CategoryService categoryService;
     @Autowired
     ArticleService articleService;
+    @Autowired
+    ArticleMapper articleMapper;
 
     @Test
     public void testUser() {
@@ -114,7 +117,53 @@ public class MapperTest {
 
     @After
     public void testArticle() {
-        
+        // 获取最近七天的数据测试成功
+//        List<Integer> dataStatistics = articleService.getDataStatistics();
+//        for (int i = 0; i < dataStatistics.size(); i++) {
+//            System.out.println(dataStatistics.get(i));
+//        }
+
+        // 通过作者id获取近7次文章访问时间测试成功
+//        List<String> categories = articleService.getCategories();
+//        for (int i = 0; i < categories.size(); i++) {
+//            System.out.println(categories.get(i));
+//        }
+
+        // 通过状态获取相同状态文章数量测试成功
+//        int articleCountByState = articleService.getArticleCountByState(2, 6L, null);
+//        System.out.println(articleCountByState);
+
+        /**
+         * LWZ TODO : 2020/7/30
+         * 测试出现问题
+         */
+        //批量更新文章状态
+//        Long[] aids = {112L, 113L};
+//        int i = articleService.updateArticleState(aids, 1);
+//        System.out.println(i);
+
+        //更新单个文章状态测试成功
+//        int i = articleService.updateArticleStateById(112);
+//        System.out.println(i);
+
+        //通过状态获取文章测试成功
+//        List<Article> articleBySate = articleService.getArticleBySate(2, 2, 1, null);
+//        for (int i = 0; i < articleBySate.size(); i++) {
+//            System.out.println(articleBySate.get(0));
+//        }
+
+        //通过id获取文章测试成功
+//        Article articleById = articleService.getArticleById(108L);
+//        System.out.println(articleById.getPageView());
+
+        // 添加文章，修改文章测试成功
+//        Article article = new Article();
+//        article.setHtmlContent("test1");
+//        article.setState(1);
+//        article.setId(124L);
+////        int i = articleMapper.updateArticle(article);
+//        int i = articleMapper.addNewArticle(article);
+//        System.out.println(i);
     }
 
 }

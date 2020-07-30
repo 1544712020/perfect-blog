@@ -37,7 +37,7 @@ public interface ArticleMapper {
      * @param keywords
      * @return
      */
-    List<Article> getArticleBySate(@Param("state") Integer state, @Param("start") Integer start,
+    List<Article> getArticleByState(@Param("state") Integer state, @Param("start") Integer start,
                                    @Param("count") Integer count, @Param("uid") Long uid,
                                    @Param("keywords") String keywords);
 
@@ -93,14 +93,14 @@ public interface ArticleMapper {
     void pvStatisticsPerDay();
 
     /**
-     * 通过作者id获取文章
+     * 通过作者id获取近7次文章访问时间
      * @param uid
      * @return
      */
     List<String> getCategories(Long uid);
 
     /**
-     * 通过用户id获取用户文章访问数据
+     * 通过用户id获取近7天文章访问数据
      * @param uid
      * @return
      */

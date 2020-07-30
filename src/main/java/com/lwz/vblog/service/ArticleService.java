@@ -126,21 +126,21 @@ public class ArticleService {
      * @param keywords
      * @return
      */
-    List<Article> getArticleBySate(Integer state,
+    public List<Article> getArticleBySate(Integer state,
                                    Integer count, Integer page,
                                    String keywords) {
         int start = (page -1) * count;
-        Long uid = Util.getCurrentUser().getId();
-        System.out.println(articleMapper.getArticleBySate(1,1,1, 6L, null).get(0).getUid());
-        return articleMapper.getArticleBySate(state, start, count, uid,keywords);
+//        Long uid = Util.getCurrentUser().getId();
+//        System.out.println(articleMapper.getArticleBySate(1,1,1, 6L, null).get(0).getUid());
+        return articleMapper.getArticleByState(state, start, count, 6L,keywords);
     }
 
     /**
-     * 更新单个文章状态
+     * 更新单个文章状态(将文章从回收站拿回来)
      * @param articleId
      * @return
      */
-    int updateArticleStateById(Integer articleId) {
+    public int updateArticleStateById(Integer articleId) {
         // 文章状态默认为1
         return articleMapper.updateArticleStateById(articleId, 1);
     }
@@ -151,7 +151,7 @@ public class ArticleService {
      * @param state
      * @return
      */
-    int updateArticleState(Long aids[], Integer state) {
+    public int updateArticleState(Long aids[], Integer state) {
         // 如果文章在回收站，将文章删除
         if (state == 2) {
             return articleMapper.deleteArticleById(aids);
@@ -167,7 +167,7 @@ public class ArticleService {
      * @param keywords
      * @return
      */
-    int getArticleCountByState(Integer state, Long uid, String keywords) {
+    public int getArticleCountByState(Integer state, Long uid, String keywords) {
         return articleMapper.getArticleCountByState(state, uid, keywords);
     }
 
@@ -179,14 +179,14 @@ public class ArticleService {
     }
 
     /**
-     * 获取最近七天的日期
+     * 通过作者id获取近7次文章访问时间
      * @return
      */
     public List<String> getCategories() {
         return articleMapper.getCategories(Util.getCurrentUser().getId());
     }
     /**
-     * 获取最近七天的数据
+     * 通过用户id获取近7天文章访问数据
      * @return
      */
     public List<Integer> getDataStatistics() {
