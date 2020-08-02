@@ -1,11 +1,11 @@
 package com.lwz.vblog.utils;
 
 import com.lwz.vblog.bean.User;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * 工具类：用于获取当前登录用户
+ * 此类属于SpringSecurity中的类
  * @author 15447
  */
 public class Util {

@@ -11,7 +11,7 @@ import org.springframework.util.DigestUtils;
 
 /**
  * LWZ TODO : 2020/7/29
- * 此类有什么作用
+ * 此类属于SpringSecurity中的加密类，用于对用户密码进行加密
  */
 
 @Component
