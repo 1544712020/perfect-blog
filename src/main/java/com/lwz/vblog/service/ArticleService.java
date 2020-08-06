@@ -126,13 +126,13 @@ public class ArticleService {
      * @param keywords
      * @return
      */
-    public List<Article> getArticleBySate(Integer state,
+    public List<Article> getArticleByState(Integer state,
                                    Integer count, Integer page,
                                    String keywords) {
         int start = (page -1) * count;
-//        Long uid = Util.getCurrentUser().getId();
-//        System.out.println(articleMapper.getArticleBySate(1,1,1, 6L, null).get(0).getUid());
-        return articleMapper.getArticleByState(state, start, count, 6L,keywords);
+        Long uid = Util.getCurrentUser().getId();
+        System.out.println(articleMapper.getArticleByState(1,1,1, 6L, null).get(0).getUid());
+        return articleMapper.getArticleByState(state, start, count, uid,keywords);
     }
 
     /**
