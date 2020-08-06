@@ -140,7 +140,7 @@ public class ArticleService {
      * @param articleId
      * @return
      */
-    public int updateArticleStateById(Integer articleId) {
+    public int restoreArticle(Integer articleId) {
         // 文章状态默认为1
         return articleMapper.updateArticleStateById(articleId, 1);
     }
