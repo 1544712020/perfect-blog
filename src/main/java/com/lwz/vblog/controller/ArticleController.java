@@ -4,13 +4,17 @@ import com.lwz.vblog.bean.Article;
 import com.lwz.vblog.bean.RespBean;
 import com.lwz.vblog.service.ArticleService;
 import com.lwz.vblog.utils.Util;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Lw中
@@ -116,7 +120,46 @@ public class ArticleController {
     }
 
     /**
+     * LWZ TODO : 2020/8/7
+     * 文件上传代码不熟悉
+     */
+    /**
      * 图片上传
      */
+    @RequestMapping(value = "/uploadimg", method = RequestMethod.POST)
+    public RespBean uploadImg(HttpServletRequest request, MultipartFile img) {
+        // StringBuffer用于拼接字符串
+        StringBuffer url =new StringBuffer();
+        // 设置文件路径
+        String filePath = "/blogimg/" + sdf.format(new Date());
+        //设置文件目录路径
+        String imgFolderPath = request.getServletContext().getRealPath(filePath);
+        // 创建文件
+        File imgFolder = new File(imgFolderPath);
+        if (!imgFolder.exists()) {
+            // 如果文件夹不存在添加新文件夹
+            imgFolder.mkdirs();
+        }
+        /**
+         * LWZ TODO : 2020/8/7
+         * 下面代码一知半解
+         */
+        url.append(request.getScheme())
+                .append("://")
+                .append(request.getServerName())
+                .append(":")
+                .append(request.getServerPort())
+                .append(request.getContextPath())
+                .append(filePath);
+        String imgName = UUID.randomUUID() + "_" + img.getOriginalFilename().replaceAll(" ", "");
+        try {
+            IOUtils.write(img.getBytes(), new FileOutputStream(new File(imgFolder, imgName)));
+            url.append("/").append(imgName);
+            return new RespBean("success", url.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new RespBean("error", "上传失败!");
+    }
 
 }
