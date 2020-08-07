@@ -50,11 +50,16 @@ public class ArticleController {
      * @return
      */
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public Map<String, Object> getArticleByState(@RequestParam(value = "state", defaultValue = "-1") Integer state, @RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "count", defaultValue = "6") Integer count, String keywords) {
+    public Map<String, Object> getArticleByState(@RequestParam(value = "state", defaultValue = "-1") Integer state,
+                                                 @RequestParam(value = "page", defaultValue = "1") Integer page,
+                                                 @RequestParam(value = "count", defaultValue = "6") Integer count,
+                                                 String keywords) {
         int totalCount = articleService.getArticleCountByState(state, Util.getCurrentUser().getId(),keywords);
         List<Article> articles = articleService.getArticleByState(state, page, count,keywords);
         Map<String, Object> map = new HashMap<>();
+        // 将文章总数存储到map种
         map.put("totalCount", totalCount);
+        // 将文章List集合放入map种存储
         map.put("articles", articles);
         return map;
     }
