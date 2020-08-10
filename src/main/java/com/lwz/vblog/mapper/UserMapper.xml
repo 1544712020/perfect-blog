@@ -77,8 +77,8 @@
         <result column="userface" property="userface"/>
         <result column="regTime" property="regTime"/>
         <collection property="roles" ofType="role">
-            <id column="id" property="id"/>
-            <result column="name" property="name"/>
+            <id column="rid" property="id"/>
+            <result column="rname" property="name"/>
         </collection>
     </resultMap>
 
