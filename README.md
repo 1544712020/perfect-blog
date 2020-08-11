@@ -28,6 +28,18 @@ vblog项目使用的主要技术：后台使用SpringBoot+SpringSecurity+MyBatis
 - 数据库：MySQL
 - 浏览器：谷歌
 
+#### 项目截图
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140543_0a85abe1_6533994.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140620_30a96cd2_6533994.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140652_f507a535_6533994.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140715_8a7fe15e_6533994.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140727_17d056c0_6533994.png "屏幕截图.png")
+
 #### 码云特技
 
 1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
