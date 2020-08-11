@@ -40,7 +40,7 @@ vblog项目使用的主要技术：后台使用SpringBoot+SpringSecurity+MyBatis
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140925_1c49d7ca_6533994.png "屏幕截图.png")
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/141005_1e12e8d4_6533994.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/141057_c655b6c4_6533994.png "屏幕截图.png")
 
 #### 码云特技
 
