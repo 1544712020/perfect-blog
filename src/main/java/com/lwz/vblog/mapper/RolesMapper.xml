@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lwz.vblog.mapper.RolesMapper">
 
-    <!-- LWZ TODO : 2020/7/24 -->
-    <!-- 为什么传入的collection是字符串数组而roles_user表中的rid是int型，会自动转换类型？ -->
+   <!--  在字符串类型的字段下插入数字会自动转换为字符串
+     在数字类型的字段下插入内容是数字的字符串会自动将字符串转换为数字 -->
     <insert id="addRoles">
         insert into roles_user values
         <foreach collection="roles" separator="," item="role">

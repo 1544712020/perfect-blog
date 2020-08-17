@@ -34,7 +34,16 @@
         <if test="keywords!=null">
             AND title LIKE concat('%',#{keywords},'%')
         </if>
-        ORDER BY a.editTime DESC limit #{start},#{count};
+        ORDER BY a.editTime DESC limit #{start},#{count}
+    </select>
+
+    <select id="getArticleByStateByAdmin" resultType="article">
+        SELECT a.id,a.`title`,a.`editTime`,a.`pageView`,a.`state`,u.`nickname`,c.`cateName`,a.uid FROM article a,user
+        u,category c WHERE a.`cid`=c.`id` AND a.`uid`=u.`id` and a.state=1
+        <if test="keywords!=null">
+            AND title LIKE concat('%',#{keywords},'%')
+        </if>
+        ORDER BY a.editTime DESC limit #{start},#{count}
     </select>
 
     <select id="getArticleCountByState" resultType="int">
@@ -72,17 +81,17 @@
 
     <select id="getArticleById" parameterType="Long" resultMap="BaseResultMap">
         SELECT
-        a.*,t.`tagName`,t.`id` AS tid,u.`nickname`,c.`cateName`
+        a.*,t.`id` AS tid,u.`nickname`,c.`cateName`,t.`tagName`
         FROM article a LEFT JOIN article_tags ats ON a.`id`=ats.`aid`
         LEFT JOIN tags t ON ats.`tid`=t.`id`
         LEFT JOIN user u ON a.`uid`=u.`id`
         LEFT JOIN category c ON a.`cid`=c.`id`
         WHERE a.id=#{aid}
     </select>
-    <!-- LWZ TODO : 2020/7/25  -->
-    <!-- 使用一对一时为什么可以直接使用未知属性未知列 -->
+    <!-- 当要查询的信息中包含外键的时候，可以在表对应的实体类中添加关联外键的属性值，
+    再在resultMap中添加column和property -->
     <resultMap id="BaseResultMap" type="article">
-        <id column="id" property="id"/>
+<!--        <id column="id" property="id"/>-->
         <result column="title" property="title"/>
         <result column="cid" property="cid"/>
         <result column="uid" property="uid"/>
@@ -93,9 +102,9 @@
         <result column="mdContent" property="mdContent"/>
         <result column="htmlContent" property="htmlContent"/>
         <result column="summary" property="summary"/>
-        <result column="nickname" property="nickname"/>
-        <result column="cateName" property="cateName"/>
-        <collection property="tags" ofType="tags" column="tagName">
+        <result column="nickname" property="nickname1"/>
+        <result column="cateName" property="cateName1"/>
+        <collection property="tags" ofType="com.lwz.vblog.bean.Tags" column="tagName">
             <id property="id" column="tid"/>
             <result property="tagName" column="tagName"/>
         </collection>

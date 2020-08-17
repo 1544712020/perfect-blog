@@ -38,7 +38,7 @@ public class AdminController {
             @RequestParam(value = "page", defaultValue = "1") Integer page,
             @RequestParam(value = "count", defaultValue = "6") Integer count, String keywords) {
         // 获取回收站中的文章
-        List<Article> articles = articleService.getArticleByState(-2, count, page, keywords);
+        List<Article> articles = articleService.getArticleByState(-2, page, count, keywords);
         // 将回收站的文章放入map中，将未放入回收站的文章总数放入map中
         Map<String, Object> map = new HashMap<>();
         map.put("articles", articles);

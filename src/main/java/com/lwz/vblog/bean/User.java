@@ -60,7 +60,7 @@ public class User implements UserDetails {
     }
 
     /**
-     * LWZ TODO : 2020/7/21
+     * LWZ TODO : 2020/7/21（SpringSecurity）
      * 如何在实体类中添加SpringSecurity
      */
     @Override

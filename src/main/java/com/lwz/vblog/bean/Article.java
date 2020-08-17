@@ -31,8 +31,8 @@ public class Article {
     private Timestamp editTime;
 
     private String[] dynamicTags;
-    private String nickname;
-    private String cateName;
+    private String nickname1;
+    private String cateName1;
     private List<Tags> tags;
     private String stateStr;
 

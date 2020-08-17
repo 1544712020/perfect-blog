@@ -120,7 +120,7 @@ public class ArticleController {
     }
 
     /**
-     * LWZ TODO : 2020/8/7
+     * LWZ TODO : 2020/8/7 文件上传
      * 文件上传代码不熟悉
      */
     /**
@@ -141,7 +141,7 @@ public class ArticleController {
             imgFolder.mkdirs();
         }
         /**
-         * LWZ TODO : 2020/8/7
+         * LWZ TODO : 2020/8/7 文件上传
          * 下面代码一知半解
          */
         url.append(request.getScheme())

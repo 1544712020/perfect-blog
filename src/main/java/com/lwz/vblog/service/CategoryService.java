@@ -56,7 +56,7 @@ public class CategoryService {
      */
     public int addCategory(Category category) {
         /**
-         * LWZ TODO : 2020/7/29
+         * LWZ TODO : 2020/7/29 设置时间问题
          * 为何这样设置时间
          */
         category.setDate(new Timestamp(System.currentTimeMillis()));

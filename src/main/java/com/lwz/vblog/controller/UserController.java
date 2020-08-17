@@ -50,7 +50,7 @@ public class UserController {
     }
 
     /**
-     * LWZ TODO : 2020/8/4
+     * LWZ TODO : 2020/8/4 SpringSecurity
      * GrantedAuthority属于SpringSecurity范畴
      * 深入下面这个类
      */

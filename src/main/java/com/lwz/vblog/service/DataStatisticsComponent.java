@@ -17,7 +17,7 @@ public class DataStatisticsComponent {
     ArticleMapper articleMapper;
 
     /**
-     * LWZ TODO : 2020/7/26
+     * LWZ TODO : 2020/7/26  @Scheduled定时任务
      * 此注解入户实现的定时任务
      */
     /** @Scheduled注解执行定时任务*/

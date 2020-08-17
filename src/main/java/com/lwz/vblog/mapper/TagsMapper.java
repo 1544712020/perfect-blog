@@ -30,7 +30,7 @@ public interface TagsMapper {
     /**
      * 通过标签名称获取标签id
      * @param tagNames
-     * @return
+     * @return 因为查询到的标签id是int类型而且不止一个，所以使用list数组来存储查询到的标签id
      */
     List<Long> getTagsIdByTagName(@Param("tagNames") String[] tagNames);
 

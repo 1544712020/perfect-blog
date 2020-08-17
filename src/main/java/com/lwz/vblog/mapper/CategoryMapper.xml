@@ -6,8 +6,6 @@
         select * from category;
     </select>
 
-    <!-- LWZ TODO : 2020/7/24 -->
-    <!-- 为什么传入的collection是字符串数组而category表中的rd是int型，会自动转换类型？ -->
     <delete id="deleteCategoryByIds">
         delete from category where id in
         <foreach collection="ids" item="id" separator="," open="(" close=")">

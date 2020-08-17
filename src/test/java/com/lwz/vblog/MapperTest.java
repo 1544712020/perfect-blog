@@ -133,13 +133,9 @@ public class MapperTest {
 //        int articleCountByState = articleService.getArticleCountByState(2, 6L, null);
 //        System.out.println(articleCountByState);
 
-        /**
-         * LWZ TODO : 2020/7/30
-         * 测试出现问题
-         */
         //批量更新文章状态
-//        Long[] aids = {112L, 113L};
-//        int i = articleService.updateArticleState(aids, 1);
+//        Long[] aids = {115L, 113L};
+//        int i = articleMapper.updateArticleState(aids, 1);
 //        System.out.println(i);
 
         //更新单个文章状态测试成功
