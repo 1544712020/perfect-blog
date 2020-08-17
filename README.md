@@ -1,19 +1,46 @@
 # vblog项目
 
 #### 介绍
-vblog项目使用的主要技术是SpringBoot+SpringSecurity+MyBatis+Vue，主要功能是用户管理和用户博客管理。
+vblog项目使用的主要技术：后台使用SpringBoot+SpringSecurity+MyBatis+MySql，前端使用Vue+Axios+vue-router+vue-echarts，属于前后端分离项目，主要功能是用户管理和用户博客管理。
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/132033_f3c435f6_6533994.jpeg "博客管理系统.jpeg")
+除了以上功能之外，项目还可以通过统计图查看文章最近访问流量等。
 
-#### 安装教程
+#### 项目架构
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+根据项目架构设计，项目结构可以划分为以下几个层次
 
-#### 使用说明
+**1：后台** 
+- 持久对象层：该层由实体类组成
+- 数据访问层：该层由DAO接口和MyBatis映射文件组成
+- 业务逻辑层：该层由Service接口组成
+- 控制层：该层由Controller控制类组成
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+ **2：前端**
+- 路由层：路由文件，定义了各个页面对应的url
+- 视图层：存储视图和组件 
+
+#### 项目开发及运行环境
+
+- 操作系统：Windows
+- Java开发包：JDK
+- 开发工具：IDEA、postman、git、navicat、processon、vue-ui、node、vscode
+- 项目构建工具：Maven
+- 数据库：MySQL
+- 浏览器：谷歌
+
+#### 项目截图
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140832_aad3372b_6533994.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140850_0309f399_6533994.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140904_5dc4246b_6533994.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140914_1e483ff3_6533994.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/140925_1c49d7ca_6533994.png "屏幕截图.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/141057_c655b6c4_6533994.png "屏幕截图.png")
 
 #### 码云特技
 
