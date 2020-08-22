@@ -86,13 +86,13 @@ public class ArticleService {
     }
 
     private int addTagsToArticle(String[] dynamicTags, Long aid) {
-        //1.删除该文章目前所有的标签
+        //1.删除该文章目前所有的标签（中间表）
         tagsMapper.deleteTagsByAid(aid);
-        //2.将上传上来的标签全部存入数据库
+        //2.将上传上来的标签全部存入数据库（标签表）
         tagsMapper.saveTags(dynamicTags);
-        //3.查询这些标签的id
+        //3.查询这些标签的id（标签表）
         List<Long> tIds = tagsMapper.getTagsIdByTagName(dynamicTags);
-        //4.重新给文章设置标签
+        //4.重新给文章设置标签（中间表）
         int i = tagsMapper.saveTags2ArticleTags(tIds, aid);
         return i == dynamicTags.length ? i : -1;
     }
