@@ -30,6 +30,9 @@ public class Article {
     private Integer pageView;
     private Timestamp editTime;
 
+    /**
+     * 为了和mapper文件中的select语句以及resultMap中的元素、字段对应，可以为实体类添加需要匹配的属性
+     */
     private String[] dynamicTags;
     private String nickname1;
     private String cateName1;
