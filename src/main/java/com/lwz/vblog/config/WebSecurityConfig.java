@@ -28,6 +28,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserService userService;
 
+    /**
+     * LWZ TODO : 2020/8/25  SpringSecurity
+     *
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService);
@@ -72,9 +76,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .exceptionHandling()
+                // getAccessDeniedHandler()获取自定义的AccessDeniedHandler处理类
                 .accessDeniedHandler(getAccessDeniedHandler());
         /**
-         * accessDeniedHandler(getAccessDeniedHandler()有何用
+         * accessDeniedHandler(getAccessDeniedHandler())有何用？
          * AccessDeniedException 主要是在用户在访问受保护资源时被拒绝而抛出的异常。
          * AccessDeniedException 的子类比较少，主要是 CSRF 相关的异常和授权服务异常。
          */
@@ -85,6 +90,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/blogimg/**","/index.html","/static/**");
     }
 
+    // 注入自定义的AccessDeniedHandler
     @Bean
     AccessDeniedHandler getAccessDeniedHandler() {
         return new AuthenticationAccessDeniedHandler();
