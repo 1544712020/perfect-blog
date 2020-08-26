@@ -60,8 +60,12 @@ public class User implements UserDetails {
     }
 
     /**
-     * LWZ TODO : 2020/7/21（SpringSecurity）
-     * 如何在实体类中添加SpringSecurity
+     *
+     * 此类实现了UserDetails接口，重写了相应的方法
+     * isAccountNonExpired：账户是否过期
+     * isAccountNonLocked：账户是否加锁
+     * isCredentialsNonExpired：密码是否过期
+     * getAuthorities：返回用户信息
      */
     @Override
     public List<GrantedAuthority> getAuthorities() {

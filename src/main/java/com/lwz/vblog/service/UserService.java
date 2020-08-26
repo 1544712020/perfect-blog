@@ -33,11 +33,8 @@ public class UserService implements UserDetailsService {
     PasswordEncoder passwordEncoder;
 
     /**
-     * LWZ TODO : 2020/7/27 SpringSecurity
-     * 为什么返回的是UserDetails
-     */
-    /**
      * 通过用户名查询用户
+     * UserService实现了UserDetailsService，用于登录认证
      */
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {

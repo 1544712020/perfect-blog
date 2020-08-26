@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     UserService userService;
 
     /**
-     * LWZ TODO : 2020/8/25  SpringSecurity
+     使用userDetailsService来配置用户信息
      *
      */
     @Override
