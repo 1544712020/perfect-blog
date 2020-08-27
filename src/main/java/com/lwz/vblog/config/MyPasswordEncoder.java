@@ -5,13 +5,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
 
 /**
- * @author Lw中
- * @date 2020/7/29 19:20
+ * LWZ TODO : 2020/7/29 SpringSecurity
+ * 此类属于SpringSecurity中的加密类，用于对用户密码进行加密
  */
 
 /**
- * LWZ TODO : 2020/7/29 SpringSecurity
- * 此类属于SpringSecurity中的加密类，用于对用户密码进行加密
+ * @author Lw中
+ * @date 2020/7/29 19:20
  */
 
 @Component

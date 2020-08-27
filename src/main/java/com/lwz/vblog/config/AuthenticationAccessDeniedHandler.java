@@ -10,8 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * LWZ TODO : 2020/8/10 SpringSecurity
- * 此类的作用？？？
+ * 此类的作用用于处理权限不足时的异常
  */
 /**
  * @author 15447
