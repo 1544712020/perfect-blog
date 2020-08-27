@@ -50,12 +50,10 @@ public class UserController {
     }
 
     /**
-     * LWZ TODO : 2020/8/4 SpringSecurity
-     * GrantedAuthority属于SpringSecurity范畴
-     * 深入下面这个类
-     */
-    /**
      * 判断当前用户是否为超级管理员
+     * 1：通过工具类获取当前登录用户
+     * 2：通过getAuthorities方法获取该用户被授予的角色权限
+     * 2：遍历查找是否存在超级管理员的角色
      * @return boolean
      */
     @RequestMapping("/isAdmin")
