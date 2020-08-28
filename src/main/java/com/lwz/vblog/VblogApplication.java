@@ -6,10 +6,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 /**
- * LWZ TODO : 2020/8/10 @EnableScheduling定时任务
- * 定时任务
- */
-/**
+ * @EnableScheduling定时任务：；确保定时任务开启
  * @author 15447
  */
 @SpringBootApplication
