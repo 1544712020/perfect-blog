@@ -5,6 +5,7 @@ import com.lwz.vblog.bean.Category;
 import com.lwz.vblog.bean.Role;
 import com.lwz.vblog.bean.User;
 import com.lwz.vblog.mapper.ArticleMapper;
+import com.lwz.vblog.mapper.UserMapper;
 import com.lwz.vblog.service.ArticleService;
 import com.lwz.vblog.service.CategoryService;
 import com.lwz.vblog.service.UserService;
@@ -41,6 +42,9 @@ public class MapperTest {
     ArticleService articleService;
     @Autowired
     ArticleMapper articleMapper;
+    @Autowired
+    UserMapper userMapper;
+
 
     @Test
     public void testUser() {
@@ -160,6 +164,20 @@ public class MapperTest {
 ////        int i = articleMapper.updateArticle(article);
 //        int i = articleMapper.addNewArticle(article);
 //        System.out.println(i);
+
+
+//        User user = new User();
+//        user.setUsername("lwz");
+//        user.setPassword("abc");
+//        int reg = userService.reg(user);
+//        System.out.println(reg);
+
+//        User u1 = new User();
+//        u1.setUsername("lwz3");
+//        u1.setPassword("1231");
+//        userService.reg(u1);
+//        System.out.println(u1.getId());
+
     }
 
 }

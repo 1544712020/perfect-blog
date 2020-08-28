@@ -66,6 +66,7 @@ public class UserService implements UserDetailsService {
         // 设置用户可用
         user.setEnabled(true);
         long result = userMapper.reg(user);
+        System.out.println(user.getId()+user.getUsername());
         //配置用户的角色，默认都是普通用户
         String[] roles = new String[]{"2"};
         // 向role_user中间表插入关联数据
