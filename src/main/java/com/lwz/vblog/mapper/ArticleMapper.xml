@@ -114,6 +114,11 @@
         UPDATE article set pageView=pageView+1 WHERE id=#{aid}
     </update>
 
+    <!--
+    totalpvview视图：存储的是各个用户所有的文章访问量之和（从文章表的访问数据中获取）
+    pvview视图：存储的是每个用户所有天数(除了今天)所有文章访问量之和（从pv表中获取）
+    pv表：存储的是每个用户每天文章访问量 = totalpvview.totalPv - pvview.pv
+    -->
     <insert id="pvStatisticsPerDay">
         INSERT INTO pv(countDate,pv,uid) SELECT CURRENT_DATE(),totalPv-pv,t.`uid` FROM pvview p,totalpvview t WHERE p.`uid`=t.`uid`
     </insert>

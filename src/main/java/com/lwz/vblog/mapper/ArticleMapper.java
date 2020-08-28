@@ -88,7 +88,7 @@ public interface ArticleMapper {
     void pvIncrement(Long aid);
 
     /**
-     * 给文章添加每天用户访问量数据
+     * 给文章添加每天用户访问量数据：存储的是每个用户每天文章访问量 = totalpvview.totalPv - pvview.pv
      */
     void pvStatisticsPerDay();
 
