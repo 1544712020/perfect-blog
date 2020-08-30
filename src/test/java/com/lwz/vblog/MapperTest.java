@@ -178,6 +178,9 @@ public class MapperTest {
 //        userService.reg(u1);
 //        System.out.println(u1.getId());
 
+//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+//        System.out.println(timestamp);
+
     }
 
 }
