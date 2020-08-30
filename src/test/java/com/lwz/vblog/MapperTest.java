@@ -128,7 +128,7 @@ public class MapperTest {
 //        }
 
         // 通过作者id获取近7次文章访问时间测试成功
-//        List<String> categories = articleService.getCategories();
+//        List<String> categories = articleService.getCategories(7L);
 //        for (int i = 0; i < categories.size(); i++) {
 //            System.out.println(categories.get(i));
 //        }

@@ -94,6 +94,7 @@ public interface ArticleMapper {
 
     /**
      * 通过作者id获取近7次文章访问时间
+     * 用字符串集合来保存七天的时间戳
      * @param uid
      * @return
      */

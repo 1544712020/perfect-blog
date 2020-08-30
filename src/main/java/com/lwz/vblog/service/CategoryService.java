@@ -56,8 +56,8 @@ public class CategoryService {
      */
     public int addCategory(Category category) {
         /**
-         * LWZ TODO : 2020/7/29 设置时间问题
-         * 为何这样设置时间
+         * Timestamp：是时间戳，将存储在数据库中的时间精确到秒（将获取到的秒数转换为精度到秒的时间戳）
+         * System.currentTimeMillis()：获取当前时间秒数
          */
         category.setDate(new Timestamp(System.currentTimeMillis()));
         return categoryMapper.addCategory(category);
