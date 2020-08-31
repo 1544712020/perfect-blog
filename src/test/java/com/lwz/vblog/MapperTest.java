@@ -178,10 +178,12 @@ public class MapperTest {
 //        userService.reg(u1);
 //        System.out.println(u1.getId());
 
-//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-//        System.out.println(timestamp);
+//        // 获取当前时间秒数
 //        long l = System.currentTimeMillis();
-//        System.out.println(l);
+//        // 将秒数转换为时间戳
+//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+//        // 输出时间戳
+//        System.out.println("秒数：" + l + " 时间戳：" + timestamp);
 
     }
 
