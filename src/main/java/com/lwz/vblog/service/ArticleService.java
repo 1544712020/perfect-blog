@@ -37,9 +37,9 @@ public class ArticleService {
         //处理文章摘要
         // 如果文章没有摘要
         if (article.getSummary() ==null || "".equals(article.getSummary())) {
-            //直接截取
+            //获取html形式的文章内容
             String stripHtml = stripHtml(article.getHtmlContent());
-            // 截取文章内容的前面部分充当摘要
+            // 截取文章内容的前面50个字符充当摘要
             article.setSummary(stripHtml.substring(0, stripHtml.length() > 50 ? 50 : stripHtml.length()));
         }
         // 如果文章的id为-1，将文章插入数据库
@@ -85,6 +85,19 @@ public class ArticleService {
         }
     }
 
+    /**
+     * 将文章内容变成html形式的输出
+     * @param content
+     * @return
+     */
+    public String stripHtml(String content) {
+        // 将正则表达式中的内容变为空，进而将文章变为html形式
+        content = content.replaceAll("<p .*?>", "");
+        content = content.replaceAll("<br\\s*/?>", "");
+        content = content.replaceAll("\\<.*?>", "");
+        return content;
+    }
+
     private int addTagsToArticle(String[] dynamicTags, Long aid) {
         //1.删除该文章目前所有的标签（中间表）
         tagsMapper.deleteTagsByAid(aid);
@@ -95,18 +108,6 @@ public class ArticleService {
         //4.重新给文章设置标签（中间表）
         int i = tagsMapper.saveTags2ArticleTags(tIds, aid);
         return i == dynamicTags.length ? i : -1;
-    }
-
-    /**
-     * 将文章内容变成html形式的输出
-     * @param content
-     * @return
-     */
-    public String stripHtml(String content) {
-        content = content.replaceAll("<p .*?>", "");
-        content = content.replaceAll("<br\\s*/?>", "");
-        content = content.replaceAll("\\<.*?>", "");
-        return content;
     }
 
     /**
