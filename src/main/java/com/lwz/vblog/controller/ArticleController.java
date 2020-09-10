@@ -120,10 +120,6 @@ public class ArticleController {
     }
 
     /**
-     * LWZ TODO : 2020/8/7 文件上传
-     * 文件上传代码不熟悉
-     */
-    /**
      * 图片上传
      */
     @RequestMapping(value = "/uploadimg", method = RequestMethod.POST)
