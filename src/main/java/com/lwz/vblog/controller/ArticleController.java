@@ -132,16 +132,16 @@ public class ArticleController {
         StringBuffer url =new StringBuffer();
         // 设置文件路径
         String filePath = "/blogimg/" + sdf.format(new Date());
-        //设置文件目录路径
+        //设置图片存储目录路径
         String imgFolderPath = request.getServletContext().getRealPath(filePath);
-        // 创建文件
+        // 创建文件夹
         File imgFolder = new File(imgFolderPath);
         if (!imgFolder.exists()) {
             // 如果文件夹不存在添加新文件夹
             imgFolder.mkdirs();
         }
         /**
-         * LWZ TODO : 2020/8/7 文件上传
+         * LWZ TODO : 2020/8/7 图片上传bug
          * 下面代码一知半解
          */
         url.append(request.getScheme())
@@ -151,6 +151,7 @@ public class ArticleController {
                 .append(request.getServerPort())
                 .append(request.getContextPath())
                 .append(filePath);
+        System.out.println(img.getOriginalFilename());
         String imgName = UUID.randomUUID() + "_" + img.getOriginalFilename().replaceAll(" ", "");
         try {
             IOUtils.write(img.getBytes(), new FileOutputStream(new File(imgFolder, imgName)));
