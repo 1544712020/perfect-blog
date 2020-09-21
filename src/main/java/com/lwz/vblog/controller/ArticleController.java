@@ -137,7 +137,7 @@ public class ArticleController {
             imgFolder.mkdirs();
         }
         /**
-         * LWZ TODO : 2020/8/7 图片上传bug
+         * LWZ TODO : 2020/8/7 图片上传存在bug
          * 下面代码一知半解
          */
         url.append(request.getScheme())
