@@ -3,6 +3,7 @@ package com.lwz.vblog.controller.admin;
 import com.lwz.vblog.bean.Article;
 import com.lwz.vblog.bean.RespBean;
 import com.lwz.vblog.service.ArticleService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,7 @@ import java.util.Map;
  * 超级用户专属Controller：用于管理文章
  */
 
+@ApiOperation(value = "文章管理接口(用户角色是超级管理员可用)")
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -33,6 +35,7 @@ public class AdminController {
      * @param keywords
      * @return
      */
+    @ApiOperation(value = "获取回收站中的文章")
     @RequestMapping(value = "/article/all", method = RequestMethod.GET)
     public Map<String, Object> getArticleByStateByAdmin(
             @RequestParam(value = "page", defaultValue = "1") Integer page,
@@ -52,6 +55,7 @@ public class AdminController {
      * @param state
      * @return
      */
+    @ApiOperation(value = "批量更新文章状态")
     @RequestMapping(value = "/article/dustbin", method = RequestMethod.PUT)
     public RespBean updateArticleState(Long[] aids, Integer state) {
         if (articleService.updateArticleState(aids, state) == aids.length) {

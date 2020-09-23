@@ -4,6 +4,10 @@ import com.lwz.vblog.bean.Article;
 import com.lwz.vblog.bean.RespBean;
 import com.lwz.vblog.service.ArticleService;
 import com.lwz.vblog.utils.Util;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +25,7 @@ import java.util.*;
  * @date 2020/8/3 23:21
  */
 
+@Api(value = "文章操作接口")
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
@@ -35,6 +40,8 @@ public class ArticleController {
      * @param article
      * @return
      */
+    @ApiOperation(value = "添加新的文章")
+    @ApiImplicitParam(name = "article", value = "Article实体(文章信息)")
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public RespBean addNewArticle(Article article) {
         int result = articleService.addNewArticle(article);
@@ -53,6 +60,9 @@ public class ArticleController {
      * @param keywords
      * @return
      */
+    @ApiOperation(value = "通过文章的状态获取文章的数量和文章list集合")
+    @ApiImplicitParams({@ApiImplicitParam(name = "state", value = "Integer类型(文章状态)"), @ApiImplicitParam(name = "page", value = "Integer类型(当前页数)"),
+            @ApiImplicitParam(name = "count", value = "Integer类型(每页显示数量)"), @ApiImplicitParam(name = "keywords", value = "String类型(检索文章关键字)")})
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public Map<String, Object> getArticleByState(@RequestParam(value = "state", defaultValue = "-1") Integer state,
                                                  @RequestParam(value = "page", defaultValue = "1") Integer page,
@@ -73,6 +83,8 @@ public class ArticleController {
      * @param aid
      * @return
      */
+    @ApiOperation(value = "通过文章id获取文章信息")
+    @ApiImplicitParam(name = "aid", value = "Long类型(文章id)")
     @RequestMapping(value = "/{aid}", method = RequestMethod.GET)
     public Article getArticleById(@PathVariable Long aid) {
         return articleService.getArticleById(aid);
@@ -84,6 +96,8 @@ public class ArticleController {
      * @param state
      * @return
      */
+    @ApiOperation(value = "批量更新文章状态")
+    @ApiImplicitParams({@ApiImplicitParam(name = "aids", value = "Long数组(文章ids)"), @ApiImplicitParam(name = "state", value = "Integer类型(更新成什么状态)")})
     @RequestMapping(value = "/dustbin", method = RequestMethod.PUT)
     public RespBean updateArticleState(Long[] aids, Integer state) {
         if (articleService.updateArticleState(aids, state) == aids.length) {
@@ -97,6 +111,8 @@ public class ArticleController {
      * @param articleId
      * @return
      */
+    @ApiOperation(value = "将文章从回收站还原")
+    @ApiImplicitParam(name = "articleId", value = "Integer类型(文章id)")
     @RequestMapping(value = "/restore", method = RequestMethod.PUT)
     public RespBean restoreArticle(Integer articleId) {
         if (articleService.restoreArticle(articleId) == 1) {
@@ -109,7 +125,8 @@ public class ArticleController {
      * 获取文章访问数据
      * @return
      */
-    @RequestMapping("/dataStatistics")
+    @ApiOperation(value = "获取当前用户的文章访问量")
+    @RequestMapping(value = "/dataStatistics", method = RequestMethod.GET)
     public Map<String,Object> dataStatistics() {
         Map<String, Object> map = new HashMap<>();
         List<String> categories = articleService.getCategories();
@@ -122,6 +139,8 @@ public class ArticleController {
     /**
      * 图片上传
      */
+    @ApiOperation(value = "文章图片管上传(存在bug)")
+    @ApiImplicitParams({@ApiImplicitParam(name = "request", value = "HttpServletRequest(http请求)"), @ApiImplicitParam(name = "img",value = "MultipartFile(图片)")})
     @RequestMapping(value = "/uploadimg", method = RequestMethod.POST)
     public RespBean uploadImg(HttpServletRequest request, MultipartFile img) {
         // StringBuffer用于拼接字符串

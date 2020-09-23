@@ -4,6 +4,7 @@ import com.lwz.vblog.bean.RespBean;
 import com.lwz.vblog.bean.Role;
 import com.lwz.vblog.bean.User;
 import com.lwz.vblog.service.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import java.util.List;
  * 用户管理控制层类
  */
 
+@ApiOperation(value = "用户管理接口(用户角色是超级管理员可用)")
 @RestController
 @RequestMapping("/admin")
 public class UserManaController {
@@ -32,6 +34,7 @@ public class UserManaController {
      * @param nickname
      * @return
      */
+    @ApiOperation(value = "通过用户昵称查找用户信息")
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public List<User> getUserByNickname(String nickname) {
         return userService.getUserByNickname(nickname);
@@ -42,6 +45,7 @@ public class UserManaController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "通过用户id查找用户信息")
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
@@ -51,6 +55,7 @@ public class UserManaController {
      * 获取所有角色信息
      * @return
      */
+    @ApiOperation(value = "获取所有角色信息")
     @RequestMapping(value = "/roles", method = RequestMethod.GET)
     public List<Role> getAllRole() {
         return userService.getAllRole();
@@ -62,6 +67,7 @@ public class UserManaController {
      * @param uid
      * @return RespBean对象(返回封装后的结果信息类)
      */
+    @ApiOperation(value = "通过用户id和权限布尔值更新用户的权限状态")
     @RequestMapping(value = "/user/enabled", method = RequestMethod.PUT)
     public RespBean updateUserEnabled(Boolean enabled, Long uid) {
         if (userService.updateUserEnabled(enabled, uid) == 1) {
@@ -76,6 +82,7 @@ public class UserManaController {
      * @param uid
      * @return RespBean(返回结果信息封装对象)
      */
+    @ApiOperation(value = "通过用户id删除用户信息")
     @RequestMapping(value = "/user/{uid}", method = RequestMethod.DELETE)
     public RespBean deleteUserById(@PathVariable Long uid) {
         if (userService.deleteUserById(uid) == 1) {
@@ -91,6 +98,7 @@ public class UserManaController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "通过用户id以及角色id数组批量更新用户的角色信息")
     @RequestMapping(value = "/user/role", method = RequestMethod.PUT)
     public RespBean updateUserRoles(Long[] rids, Long id) {
         if (userService.updateUserRoles(rids, id) == rids.length) {
