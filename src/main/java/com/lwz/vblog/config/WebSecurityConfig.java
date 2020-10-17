@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -29,13 +30,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserService userService;
 
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new MyPasswordEncoder();
+    }
+
     /**
      使用userDetailsService来配置用户信息
      *
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService);
+        // 保证用户登录时使用md5对密码进行处理再与数据库中的密码比对
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
 
     @Override
