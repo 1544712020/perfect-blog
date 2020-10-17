@@ -25,6 +25,7 @@ import java.io.PrintWriter;
  */
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     UserService userService;
 
@@ -104,7 +105,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      *
-     注入自定义的AccessDeniedHandler
+     注入自定义的AccessDeniedHandler（认证被拒绝）
      */
     @Bean
     AccessDeniedHandler getAccessDeniedHandler() {
