@@ -139,7 +139,7 @@ public class ArticleController {
     /**
      * 图片上传
      */
-    @ApiOperation(value = "文章图片管上传(存在bug)")
+    @ApiOperation(value = "文章图片上传")
     @ApiImplicitParams({@ApiImplicitParam(name = "request", value = "HttpServletRequest(http请求)"), @ApiImplicitParam(name = "img",value = "MultipartFile(图片)")})
     @RequestMapping(value = "/uploadimg", method = RequestMethod.POST)
     public RespBean uploadImg(HttpServletRequest request, MultipartFile img) {
@@ -156,8 +156,7 @@ public class ArticleController {
             imgFolder.mkdirs();
         }
         /**
-         * LWZ TODO : 2020/8/7 图片上传存在未知bug
-         * 下面代码一知半解
+         * LWZ TODO : 2020/8/7 下面代码一知半解
          */
         url.append(request.getScheme())
                 .append("://")
