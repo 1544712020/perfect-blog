@@ -91,7 +91,7 @@
     <!-- 当要查询的信息中包含外键的时候，可以在表对应的实体类中添加关联外键的属性值，
     再在resultMap中添加column和property -->
     <resultMap id="BaseResultMap" type="article">
-<!--        <id column="id" property="id"/>-->
+        <id column="id" property="id"/>
         <result column="title" property="title"/>
         <result column="cid" property="cid"/>
         <result column="uid" property="uid"/>

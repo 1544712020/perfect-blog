@@ -13,11 +13,6 @@ import java.util.List;
 @Mapper
 public interface TagsMapper {
 
-    /**
-     * 通过id删除标签
-     * @param aid
-     * @return
-     */
     int deleteTagsByAid(Long aid);
 
     /**

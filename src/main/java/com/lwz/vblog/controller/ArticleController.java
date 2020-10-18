@@ -36,7 +36,7 @@ public class ArticleController {
     ArticleService articleService;
 
     /**
-     * 添加新文章
+     * 添加新文章/更新文章内容
      * @param article
      * @return
      */
