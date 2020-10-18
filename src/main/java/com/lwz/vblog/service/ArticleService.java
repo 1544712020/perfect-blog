@@ -20,9 +20,9 @@ import java.util.List;
 @Transactional
 public class ArticleService {
 
-    @Autowired
+    @Autowired(required = false)
     ArticleMapper articleMapper;
-    @Autowired
+    @Autowired(required = false)
     TagsMapper tagsMapper;
 
     /**
