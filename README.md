@@ -3,7 +3,7 @@
 #### 介绍
 perfect-blog项目使用的主要技术：后台使用SpringBoot+SpringSecurity+MyBatis+MySql+Swagger，前端使用Vue+Axios+vue-router+vue-echarts，属于前后端分离项目，主要功能是用户管理和用户博客管理。
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/132033_f3c435f6_6533994.jpeg "博客管理系统.jpeg")
-除了以上功能之外，项目还可以通过统计图查看文章最近访问流量等。
+除了以上功能之外，项目通过视图和定时任务进行文章访问量的计算，最后通过echarts统计图查看文章最近访问流量；项目使用Swagger编写了接口文档，项目运行以来之后可以通过[http://localhost:8081/swagger-ui.html#/](http://localhost:8081/swagger-ui.html#/)查看接口文档，进而对项目的功能和接口的功能有一个大致的了解；项目在登录模块使用了Spring的安全框架——SpringSecurity，对不同角色用户的访问权限进行认证和授权，使得项目在安全性能方面有了一定的提升。
 
 #### 项目架构
 
