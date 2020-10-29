@@ -1,7 +1,7 @@
 # perfect-blog项目
 
 #### 介绍
-perfect-blog项目使用的主要技术：后台使用SpringBoot+SpringSecurity+MyBatis+MySql+Swagger，前端使用Vue+Axios+vue-router+vue-echarts，属于前后端分离项目，主要功能是用户管理和用户博客管理。
+perfect-blog项目使用的主要技术：后台使用SpringBoot+SpringSecurity+MyBatis+MySql+Redis+Swagger，前端使用Vue+Axios+vue-router+vue-echarts，属于前后端分离项目，主要功能是用户管理和用户博客管理。
 
 #### 项目功能概况图
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/132033_f3c435f6_6533994.jpeg "博客管理系统.jpeg")
