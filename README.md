@@ -5,6 +5,14 @@ perfect-blog项目使用的主要技术：后台使用SpringBoot+SpringSecurity+
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0811/132033_f3c435f6_6533994.jpeg "博客管理系统.jpeg")
 除了以上功能之外，项目通过视图和定时任务进行文章访问量的计算，最后通过echarts统计图查看文章最近访问流量；项目使用Swagger编写了接口文档，项目运行以来之后可以通过[http://localhost:8081/swagger-ui.html#/](http://localhost:8081/swagger-ui.html#/)查看接口文档，进而对项目的功能和接口的功能有一个大致的了解；项目在登录模块使用了Spring的安全框架——SpringSecurity，对不同角色用户的访问权限进行认证和授权，使得项目在安全性能方面有了一定的提升。
 
+#### Wiki帮助文档
+
+1：[项目数据库表设计](https://gitee.com/wei_zhong_liu/vueblog/wikis/%E9%A1%B9%E7%9B%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E8%AE%BE%E8%AE%A1?sort_id=2467437)
+
+2：[项目数据库视图设计](https://gitee.com/wei_zhong_liu/vueblog/wikis/%E9%A1%B9%E7%9B%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%86%E5%9B%BE%E8%AE%BE%E8%AE%A1?sort_id=2893744)
+
+3：[Swagger接口文档说明](https://gitee.com/wei_zhong_liu/vueblog/wikis/Swagger%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E?sort_id=2899399)
+
 #### 项目架构
 
 根据项目架构设计，项目结构可以划分为以下几个层次
