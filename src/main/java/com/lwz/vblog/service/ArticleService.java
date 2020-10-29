@@ -138,7 +138,7 @@ public class ArticleService {
                                    String keywords) {
         int start = (page -1) * count;
         Long uid = Util.getCurrentUser().getId();
-        return articleMapper.getArticleByState(state, start, count, uid,keywords);
+        return articleMapper.getArticleByState(state, start, count, uid, keywords);
     }
 
     /**
