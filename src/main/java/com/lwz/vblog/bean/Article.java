@@ -4,18 +4,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
 /**
  * @author Lw中
  * @date 2020/7/21 15:42
+ * 因为对文章使用了redis缓存，所以需要进行序列化
  */
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Article {
+public class Article implements Serializable {
 
     private Long id;
     private String title;
