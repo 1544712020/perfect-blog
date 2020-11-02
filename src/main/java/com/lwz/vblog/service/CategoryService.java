@@ -18,7 +18,7 @@ import java.util.List;
 @Transactional
 public class CategoryService {
 
-    @Autowired
+    @Autowired(required = false)
     CategoryMapper categoryMapper;
 
     /**

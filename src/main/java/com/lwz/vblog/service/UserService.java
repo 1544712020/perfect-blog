@@ -6,6 +6,8 @@ import com.lwz.vblog.mapper.RolesMapper;
 import com.lwz.vblog.mapper.UserMapper;
 import com.lwz.vblog.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,12 +23,13 @@ import java.util.List;
  */
 
 @Service
+@CacheConfig(cacheNames = "User")
 @Transactional
 public class UserService implements UserDetailsService {
 
-    @Autowired
+    @Autowired(required = false)
     UserMapper userMapper;
-    @Autowired
+    @Autowired(required = false)
     RolesMapper rolesMapper;
     /** 注入此类用于加密 */
     @Autowired
@@ -102,6 +105,7 @@ public class UserService implements UserDetailsService {
      * 获取所有用户角色
      * @return
      */
+    @Cacheable(cacheNames = "Role")
     public List<Role> getAllRole() {
         return userMapper.getAllRole();
     }
