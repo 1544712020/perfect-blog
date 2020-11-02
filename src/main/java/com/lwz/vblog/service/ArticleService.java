@@ -5,8 +5,6 @@ import com.lwz.vblog.mapper.ArticleMapper;
 import com.lwz.vblog.mapper.TagsMapper;
 import com.lwz.vblog.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +18,6 @@ import java.util.List;
 
 @Service
 @Transactional
-@CacheConfig(cacheNames = "article")
 public class ArticleService {
 
     @Autowired(required = false)
@@ -85,6 +82,13 @@ public class ArticleService {
             return i;
         }
     }
+
+    /**
+     * 给文章添加标签
+     * @param dynamicTags
+     * @param aid
+     * @return
+     */
     private int addTagsToArticle(String[] dynamicTags, Long aid) {
         //1.删除该文章目前所有的标签（中间表）
         tagsMapper.deleteTagsByAid(aid);
@@ -115,7 +119,6 @@ public class ArticleService {
      * @param aid
      * @return
      */
-    @Cacheable
     public Article getArticleById(Long aid) {
         // 通过id查询文章
         Article article = articleMapper.getArticleById(aid);
@@ -132,7 +135,6 @@ public class ArticleService {
      * @param keywords
      * @return
      */
-    @Cacheable
     public List<Article> getArticleByState(Integer state,
                                    Integer page, Integer count,
                                    String keywords) {
