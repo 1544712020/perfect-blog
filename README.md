@@ -8,7 +8,7 @@ perfect-blog项目使用的主要技术：后台使用SpringBoot+SpringSecurity+
 
 #### 项目其余功能
 
-除了以上功能之外，项目在登录模块使用了Spring的安全框架——SpringSecurity，对不同角色用户的访问权限进行认证和授权，使得项目在安全性能方面有了一定的提升；项目对一些文章查询操作提供了redis缓存，减少了磁盘的IO操作进而提高了服务的响应速度；项目通过视图和定时任务进行文章访问量的计算，最后通过echarts统计图查看文章最近访问流量；项目使用Swagger编写了接口文档，项目运行以来之后可以通过[http://localhost:8081/swagger-ui.html#/](http://localhost:8081/swagger-ui.html#/)查看接口文档，进而对项目的功能和接口的功能有一个大致的了解。
+除了以上功能之外，项目在登录模块使用了Spring的安全框架——SpringSecurity，对不同角色用户的访问权限进行认证和授权，使得项目在安全性能方面有了一定的提升；项目对一些经常查询但不经常修改的数据提供了redis缓存，减少了磁盘的IO操作进而提高了服务的响应速度；项目通过视图和定时任务进行文章访问量的计算，最后通过echarts统计图查看文章最近访问流量；项目使用Swagger编写了接口文档，项目运行以来之后可以通过[http://localhost:8081/swagger-ui.html#/](http://localhost:8081/swagger-ui.html#/)查看接口文档，进而对项目的功能和接口的功能有一个大致的了解。
 
 #### Wiki帮助文档
 
