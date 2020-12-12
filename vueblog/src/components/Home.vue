@@ -56,87 +56,88 @@
   </el-container>
 </template>
 <script>
-  import {getRequest} from '../utils/api'
-  export default{
-    methods: {
-      handleCommand(command){
-        var _this = this;
-        if (command == 'logout') {
-          this.$confirm('注销登录吗?', '提示', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'
-          }).then(function () {
-            getRequest("/logout")
-            _this.currentUserName = '游客';
-            _this.$router.replace({path: '/'});
-          }, function () {
-            //取消
-          })
-        }
-      }
-    },
-    mounted: function () {
-      this.$alert('欢迎来到博客管理系统', '欢迎语录', {
-        confirmButtonText: '确定',
-        callback: action => {
-        }
-      });
+import {getRequest} from '../utils/api'
+
+export default {
+  methods: {
+    handleCommand(command) {
       var _this = this;
-      getRequest("/currentUserName").then(function (msg) {
-        _this.currentUserName = msg.data;
-      }, function (msg) {
-        _this.currentUserName = '游客';
-      });
-    },
-    data(){
-      return {
-        currentUserName: ''
+      if (command == 'logout') {
+        this.$confirm('注销登录吗?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(function () {
+          getRequest("/logout")
+          _this.currentUserName = '游客';
+          _this.$router.replace({path: '/'});
+        }, function () {
+          //取消
+        })
       }
     }
+  },
+  mounted: function () {
+    this.$alert('欢迎来到博客管理系统', '欢迎语录', {
+      confirmButtonText: '确定',
+      callback: action => {
+      }
+    });
+    var _this = this;
+    getRequest("/currentUserName").then(function (msg) {
+      _this.currentUserName = msg.data;
+    }, function (msg) {
+      _this.currentUserName = '游客';
+    });
+  },
+  data() {
+    return {
+      currentUserName: ''
+    }
   }
+}
 </script>
 <style>
-  .home_container {
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-  }
+.home_container {
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
 
-  .el-header {
-    background-color: #20a0ff;
-    color: #333;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.el-header {
+  background-color: #20a0ff;
+  color: #333;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .el-aside {
-    background-color: #ECECEC;
-  }
+.el-aside {
+  background-color: #ECECEC;
+}
 
-  .el-main {
-    background-color: #fff;
-    color: #000;
-    text-align: center;
-  }
+.el-main {
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+}
 
-  .home_title {
-    color: #fff;
-    font-size: 22px;
-    display: inline;
-  }
+.home_title {
+  color: #fff;
+  font-size: 22px;
+  display: inline;
+}
 
-  .home_userinfo {
-    color: #fff;
-    cursor: pointer;
-  }
+.home_userinfo {
+  color: #fff;
+  cursor: pointer;
+}
 
-  .home_userinfoContainer {
-    display: inline;
-    margin-right: 20px;
-  }
+.home_userinfoContainer {
+  display: inline;
+  margin-right: 20px;
+}
 </style>

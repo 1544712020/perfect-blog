@@ -17,7 +17,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Tags implements Serializable {
 
-private Long id;
-private String tagName;
+    private Long id;
+    private String tagName;
 
 }

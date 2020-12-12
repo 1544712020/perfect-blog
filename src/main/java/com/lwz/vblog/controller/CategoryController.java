@@ -29,6 +29,7 @@ public class CategoryController {
 
     /**
      * 获取所有文章类别
+     *
      * @return
      */
     @ApiOperation(value = "获取所有的文章类别")
@@ -39,6 +40,7 @@ public class CategoryController {
 
     /**
      * 批量删除文章类别
+     *
      * @param ids
      * @return
      */
@@ -55,6 +57,7 @@ public class CategoryController {
 
     /**
      * 添加新的文章类别
+     *
      * @param category
      * @return
      */
@@ -74,6 +77,7 @@ public class CategoryController {
 
     /**
      * 更新文章类别
+     *
      * @param category
      * @return
      */

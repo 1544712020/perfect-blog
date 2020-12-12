@@ -3,7 +3,7 @@
 <mapper namespace="com.lwz.vblog.mapper.TagsMapper">
 
     <delete id="deleteTagsByAid" parameterType="Long">
-      DELETE FROM article_tags WHERE aid=#{aid}
+        DELETE FROM article_tags WHERE aid=#{aid}
     </delete>
 
     <insert id="saveTags">

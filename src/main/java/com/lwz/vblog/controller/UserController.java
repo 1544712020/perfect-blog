@@ -27,6 +27,7 @@ public class UserController {
 
     /**
      * 获取当前用户的昵称
+     *
      * @return String
      */
     @ApiOperation(value = "获取当前登录用户姓名")
@@ -37,6 +38,7 @@ public class UserController {
 
     /**
      * 获取当前用户id
+     *
      * @return Long
      */
     @ApiOperation(value = "获取当前登录用户ID")
@@ -47,6 +49,7 @@ public class UserController {
 
     /**
      * 获取当前用户的邮箱
+     *
      * @return String
      */
     @ApiOperation(value = "获取当前登录用户邮箱")
@@ -60,6 +63,7 @@ public class UserController {
      * 1：通过工具类获取当前登录用户
      * 2：通过getAuthorities方法获取该用户被授予的角色权限
      * 2：遍历查找是否存在超级管理员的角色
+     *
      * @return boolean
      */
     @ApiOperation(value = "判断当前用户是否为超级管理员")
@@ -76,6 +80,7 @@ public class UserController {
 
     /**
      * 更新用户的邮箱
+     *
      * @param email
      * @return RespBean
      */

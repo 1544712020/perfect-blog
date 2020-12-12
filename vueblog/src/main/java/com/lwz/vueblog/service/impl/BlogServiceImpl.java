@@ -19,11 +19,11 @@ import java.util.List;
 @Service("blogService")
 public class BlogServiceImpl extends ServiceImpl<BlogDao, Blog> implements BlogService {
 
-    @Autowired
-    BlogDao blogDao;
+  @Autowired
+  BlogDao blogDao;
 
-    @Override
-    public List<Blog> queryAll(Blog blog) {
-        return blogDao.queryAll(null);
-    }
+  @Override
+  public List<Blog> queryAll(Blog blog) {
+    return blogDao.queryAll(null);
+  }
 }

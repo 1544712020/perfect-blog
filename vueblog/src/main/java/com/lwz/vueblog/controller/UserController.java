@@ -18,33 +18,32 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    /**
-     * 服务对象
-     */
-    @Resource
-    private UserService userService;
+  /**
+   * 服务对象
+   */
+  @Resource
+  private UserService userService;
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @return 单条数据
-     *
-     *  @RequiresAuthentication：验证用户是否登录,说明需要登录之后才能访问的接口
-     */
+  /**
+   * 通过主键查询单条数据
+   *
+   * @return 单条数据
+   * @RequiresAuthentication：验证用户是否登录,说明需要登录之后才能访问的接口
+   */
 
-    @RequiresAuthentication
-    @GetMapping("/index")
-    public Result index() {
-        User user = this.userService.getById(1L);
-        return Result.succ(user);
-    }
+  @RequiresAuthentication
+  @GetMapping("/index")
+  public Result index() {
+    User user = this.userService.getById(1L);
+    return Result.succ(user);
+  }
 
-    /**
-     * @Validated：用于校验实体类中的参数是否正确合理
-     * */
-    @PostMapping("/save")
-    public Result save(@Validated @RequestBody User user) {
-        return Result.succ(user);
-    }
+  /**
+   * @Validated：用于校验实体类中的参数是否正确合理
+   */
+  @PostMapping("/save")
+  public Result save(@Validated @RequestBody User user) {
+    return Result.succ(user);
+  }
 
 }

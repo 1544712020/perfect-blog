@@ -27,6 +27,7 @@ public class ArticleService {
 
     /**
      * 添加文章
+     *
      * @return
      */
     public int addNewArticle(Article article) {
@@ -85,6 +86,7 @@ public class ArticleService {
 
     /**
      * 给文章添加标签
+     *
      * @param dynamicTags
      * @param aid
      * @return
@@ -103,6 +105,7 @@ public class ArticleService {
 
     /**
      * 将文章内容变成html形式的输出
+     *
      * @param content
      * @return
      */
@@ -116,6 +119,7 @@ public class ArticleService {
 
     /**
      * 通过id获取文章
+     *
      * @param aid
      * @return
      */
@@ -129,6 +133,7 @@ public class ArticleService {
 
     /**
      * 通过状态获取文章
+     *
      * @param state
      * @param count
      * @param page
@@ -136,15 +141,16 @@ public class ArticleService {
      * @return
      */
     public List<Article> getArticleByState(Integer state,
-                                   Integer page, Integer count,
-                                   String keywords) {
-        int start = (page -1) * count;
+                                           Integer page, Integer count,
+                                           String keywords) {
+        int start = (page - 1) * count;
         Long uid = Util.getCurrentUser().getId();
         return articleMapper.getArticleByState(state, start, count, uid, keywords);
     }
 
     /**
      * 更新单个文章状态(将文章从回收站拿回来)
+     *
      * @param articleId
      * @return
      */
@@ -155,6 +161,7 @@ public class ArticleService {
 
     /**
      * 批量更新文章状态
+     *
      * @param aids
      * @param state
      * @return
@@ -170,6 +177,7 @@ public class ArticleService {
 
     /**
      * 通过状态获取相同状态文章数量
+     *
      * @param state
      * @param uid
      * @param keywords
@@ -188,13 +196,16 @@ public class ArticleService {
 
     /**
      * 通过作者id获取近7次文章访问时间
+     *
      * @return
      */
     public List<String> getCategories() {
         return articleMapper.getCategories(Util.getCurrentUser().getId());
     }
+
     /**
      * 通过用户id获取近7天文章访问数据
+     *
      * @return
      */
     public List<Integer> getDataStatistics() {

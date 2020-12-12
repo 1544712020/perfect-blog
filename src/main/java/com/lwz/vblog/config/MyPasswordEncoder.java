@@ -6,6 +6,7 @@ import org.springframework.util.DigestUtils;
 
 /**
  * 此类实现了passwordEncoder：主要用于对密码加密
+ *
  * @author Lw中
  * @date 2020/7/29 19:20
  */
@@ -14,7 +15,8 @@ import org.springframework.util.DigestUtils;
 public class MyPasswordEncoder implements PasswordEncoder {
 
     /**
-     *此类将用户传入的明文密码进行加密，返回密文
+     * 此类将用户传入的明文密码进行加密，返回密文
+     *
      * @param rawPassword
      * @return
      */
@@ -25,6 +27,7 @@ public class MyPasswordEncoder implements PasswordEncoder {
 
     /**
      * 用户登录时，将用户输入的密码和数据库中的密文密码校对
+     *
      * @param rawPassword
      * @param encodedPassword
      * @return

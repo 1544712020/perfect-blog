@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author Lw中
  * @date 2020/6/20 8:14
- *
+ * <p>
  * mybatis-plus配置类
  */
 
@@ -18,16 +18,16 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.lwz.vueblog.dao")
 public class MybatisPlusConfig {
 
-    /**
-     * 配置分页拦截器
-     *
-     * @return
-     */
-    @Bean
-    public PaginationInterceptor paginationInterceptor() {
-        /** 添加分页插件*/
-        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-        return paginationInterceptor;
-    }
+  /**
+   * 配置分页拦截器
+   *
+   * @return
+   */
+  @Bean
+  public PaginationInterceptor paginationInterceptor() {
+    /** 添加分页插件*/
+    PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+    return paginationInterceptor;
+  }
 
 }

@@ -16,6 +16,7 @@ public interface ArticleMapper {
 
     /**
      * 添加文章
+     *
      * @param article
      * @return
      */
@@ -23,6 +24,7 @@ public interface ArticleMapper {
 
     /**
      * 更新文章
+     *
      * @param article
      * @return
      */
@@ -30,6 +32,7 @@ public interface ArticleMapper {
 
     /**
      * 通过状态获取文章
+     *
      * @param state
      * @param start
      * @param count
@@ -38,11 +41,12 @@ public interface ArticleMapper {
      * @return
      */
     List<Article> getArticleByState(@Param("state") Integer state, @Param("start") Integer start,
-                                   @Param("count") Integer count, @Param("uid") Long uid,
-                                   @Param("keywords") String keywords);
+                                    @Param("count") Integer count, @Param("uid") Long uid,
+                                    @Param("keywords") String keywords);
 
     /**
      * 通过状态获取相同状态文章数量
+     *
      * @param state
      * @param uid
      * @param keywords
@@ -53,6 +57,7 @@ public interface ArticleMapper {
 
     /**
      * 批量更新文章状态
+     *
      * @param aids
      * @param state
      * @return
@@ -61,6 +66,7 @@ public interface ArticleMapper {
 
     /**
      * 更新单个文章状态
+     *
      * @param articleId
      * @param state
      * @return
@@ -69,6 +75,7 @@ public interface ArticleMapper {
 
     /**
      * 通过id删除文章
+     *
      * @param aids
      * @return
      */
@@ -76,6 +83,7 @@ public interface ArticleMapper {
 
     /**
      * 通过id获取文章
+     *
      * @param aid
      * @return
      */
@@ -83,6 +91,7 @@ public interface ArticleMapper {
 
     /**
      * 通过用户id获取用户访问增长量
+     *
      * @param aid
      */
     void pvIncrement(Long aid);
@@ -95,6 +104,7 @@ public interface ArticleMapper {
     /**
      * 通过作者id获取近7次文章访问时间
      * 用字符串集合来保存七天的时间戳
+     *
      * @param uid
      * @return
      */
@@ -102,6 +112,7 @@ public interface ArticleMapper {
 
     /**
      * 通过用户id获取近7天文章访问数据
+     *
      * @param uid
      * @return
      */

@@ -26,10 +26,14 @@ public class Article implements Serializable {
     private String summary;
     private Long cid;
     private Long uid;
-    /** 使用时间戳保存文章编辑、文章公布时间 */
+    /**
+     * 使用时间戳保存文章编辑、文章公布时间
+     */
     private Timestamp publishDate;
     private Integer state;
-    /**文章页面浏览次数*/
+    /**
+     * 文章页面浏览次数
+     */
     private Integer pageView;
     private Timestamp editTime;
 

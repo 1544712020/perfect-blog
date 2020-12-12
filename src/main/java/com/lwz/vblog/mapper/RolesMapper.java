@@ -16,6 +16,7 @@ public interface RolesMapper {
 
     /**
      * 通过用户id给用户添加角色
+     *
      * @param roles
      * @param uid
      * @return
@@ -24,6 +25,7 @@ public interface RolesMapper {
 
     /**
      * 通过用户id获取用户的角色
+     *
      * @param uid
      * @return
      */

@@ -25,7 +25,6 @@ import java.util.List;
 /**
  * @author Lw中
  * @date 2020/7/29 17:12
- *
  * @SpringBootTest：用于注明此测试类是SpringBoot中的测试类
  * @RunWith(SpringRunner.class)：让测试运行于Spring测试环境
  */

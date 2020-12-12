@@ -28,6 +28,7 @@ public class CategoryService {
 
     /**
      * 获取所有的文章类别
+     *
      * @return
      */
     @Cacheable(cacheNames = "All")
@@ -37,6 +38,7 @@ public class CategoryService {
 
     /**
      * 批量删除文章类别（当执行删除操作之后会对名称为“All”的缓存进行清除）
+     *
      * @param ids
      * @return
      */
@@ -48,7 +50,8 @@ public class CategoryService {
     }
 
     /**
-     *  通过id更新文章类别（当执行修改操作之后会对名称为“All”的缓存进行清除）
+     * 通过id更新文章类别（当执行修改操作之后会对名称为“All”的缓存进行清除）
+     *
      * @param category
      * @return
      */
@@ -59,6 +62,7 @@ public class CategoryService {
 
     /**
      * 添加文章类别
+     *
      * @param category
      * @return
      */

@@ -68,7 +68,7 @@
         </foreach>
     </update>
 
-    <update id="updateArticleStateById" >
+    <update id="updateArticleStateById">
         UPDATE article SET state=#{state} WHERE id = #{articleId}
     </update>
 
@@ -120,7 +120,8 @@
     pv表：存储的是每个用户每天文章访问量 = totalpvview.totalPv - pvview.pv
     -->
     <insert id="pvStatisticsPerDay">
-        INSERT INTO pv(countDate,pv,uid) SELECT CURRENT_DATE(),totalPv-pv,t.`uid` FROM pvview p,totalpvview t WHERE p.`uid`=t.`uid`
+        INSERT INTO pv(countDate,pv,uid) SELECT CURRENT_DATE(),totalPv-pv,t.`uid` FROM pvview p,totalpvview t WHERE
+        p.`uid`=t.`uid`
     </insert>
 
     <select id="getCategories" resultType="String" parameterType="long">

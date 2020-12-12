@@ -17,8 +17,7 @@ public class DataStatisticsComponent {
     ArticleMapper articleMapper;
 
     /**
-     * @Scheduled：此注解入户实现的定时任务
-     * cron有6-7个字符组成(秒 分钟 一天的第几个小时 某月的第几天 月 星期几 年)
+     * @Scheduled：此注解入户实现的定时任务 cron有6-7个字符组成(秒 分钟 一天的第几个小时 某月的第几天 月 星期几 年)
      * 0 0 10,14,16 * * ? 每天上午10点，下午2点，4点
      * 下面的是每天的零点，第一秒执行下面的定时任务
      */

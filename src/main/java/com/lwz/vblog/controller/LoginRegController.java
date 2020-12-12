@@ -27,6 +27,7 @@ public class LoginRegController {
 
     /**
      * 登陆失败
+     *
      * @return
      */
     @ApiOperation(value = "响应登录失败信息")
@@ -37,6 +38,7 @@ public class LoginRegController {
 
     /**
      * 登录成功
+     *
      * @return
      */
     @ApiOperation(value = "响应登录成功信息")
@@ -47,6 +49,7 @@ public class LoginRegController {
 
     /**
      * 如果自动跳转到这个页面，说明用户未登录
+     *
      * @return
      */
     @ApiOperation(value = "响应尚未登录信息")
@@ -57,6 +60,7 @@ public class LoginRegController {
 
     /**
      * 用户注册
+     *
      * @param user
      * @return
      */

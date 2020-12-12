@@ -14,69 +14,69 @@ import org.springframework.stereotype.Component;
 /**
  * @author Lw中
  * @date 2020/6/20 10:21
- *
+ * <p>
  * shiro进行登录或者权限校验的逻辑核心
  */
 
 @Component
 public class AccountRealm extends AuthorizingRealm {
 
-    @Autowired
-    JwtUtils jwtUtils;
+  @Autowired
+  JwtUtils jwtUtils;
 
-    @Autowired
-    UserService userService;
+  @Autowired
+  UserService userService;
 
-    /**
-     * 为了让realm支持jwt
-     *
-     * @param token
-     * @return
-     */
-    @Override
-    public boolean supports(AuthenticationToken token) {
-        return token instanceof JwtToken;
+  /**
+   * 为了让realm支持jwt
+   *
+   * @param token
+   * @return
+   */
+  @Override
+  public boolean supports(AuthenticationToken token) {
+    return token instanceof JwtToken;
+  }
+
+  /**
+   * 权限校验
+   *
+   * @param principals
+   * @return
+   */
+  @Override
+  protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+    return null;
+  }
+
+  /**
+   * 登录认证校验
+   *
+   * @param token
+   * @return
+   * @throws AuthenticationException
+   */
+  @Override
+  protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+
+    JwtToken jwtToken = (JwtToken) token;
+
+    /** 获取subject单例对象的userId*/
+    String userId = jwtUtils.getClaimByToken((String) jwtToken.getPrincipal()).getSubject();
+
+    /**通过userId查询用户 */
+    User user = userService.getById(Long.valueOf(userId));
+    if (user == null) {
+      throw new UnknownAccountException("账户不存在");
     }
 
-    /**
-     * 权限校验
-     *
-     * @param principals
-     * @return
-     */
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        return null;
+    if (user.getStatus() == -1) {
+      throw new LockedAccountException("账户已被锁定");
     }
 
-    /**
-     * 登录认证校验
-     *
-     * @param token
-     * @return
-     * @throws AuthenticationException
-     */
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+    AccountProfile profile = new AccountProfile();
+    BeanUtil.copyProperties(user, profile);
 
-        JwtToken jwtToken = (JwtToken) token;
-
-        /** 获取subject单例对象的userId*/
-        String userId = jwtUtils.getClaimByToken((String) jwtToken.getPrincipal()).getSubject();
-
-        /**通过userId查询用户 */
-        User user = userService.getById(Long.valueOf(userId));
-        if (user == null) {
-            throw new UnknownAccountException("账户不存在");
-        }
-
-        if (user.getStatus() == -1) {
-            throw new LockedAccountException("账户已被锁定");
-        }
-
-        AccountProfile profile = new AccountProfile();
-        BeanUtil.copyProperties(user, profile);
-
-        return new SimpleAuthenticationInfo(profile, jwtToken.getCredentials(), getName());
-    }
+    return new SimpleAuthenticationInfo(profile, jwtToken.getCredentials(), getName());
+  }
 }

@@ -31,6 +31,7 @@ public class UserManaController {
 
     /**
      * 通过用户昵称查找用户信息
+     *
      * @param nickname
      * @return
      */
@@ -42,6 +43,7 @@ public class UserManaController {
 
     /**
      * 通过用户id查找用户信息
+     *
      * @param id
      * @return
      */
@@ -53,6 +55,7 @@ public class UserManaController {
 
     /**
      * 获取所有角色信息
+     *
      * @return
      */
     @ApiOperation(value = "获取所有角色信息")
@@ -63,6 +66,7 @@ public class UserManaController {
 
     /**
      * 通过用户id和权限布尔值更新用户的权限状态
+     *
      * @param enabled
      * @param uid
      * @return RespBean对象(返回封装后的结果信息类)
@@ -79,6 +83,7 @@ public class UserManaController {
 
     /**
      * 通过用户id删除用户信息
+     *
      * @param uid
      * @return RespBean(返回结果信息封装对象)
      */
@@ -94,6 +99,7 @@ public class UserManaController {
 
     /**
      * 通过用户id以及角色id数组批量更新用户的角色信息
+     *
      * @param rids
      * @param id
      * @return

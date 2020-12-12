@@ -31,7 +31,9 @@ public class UserService implements UserDetailsService {
     UserMapper userMapper;
     @Autowired(required = false)
     RolesMapper rolesMapper;
-    /** 注入此类用于加密 */
+    /**
+     * 注入此类用于加密
+     */
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -54,6 +56,7 @@ public class UserService implements UserDetailsService {
 
     /**
      * 添加用户
+     *
      * @param user
      * @return 0表示成功
      * 1表示用户名重复
@@ -69,7 +72,7 @@ public class UserService implements UserDetailsService {
         // 设置用户可用
         user.setEnabled(true);
         long result = userMapper.reg(user);
-        System.out.println(user.getId()+user.getUsername());
+        System.out.println(user.getId() + user.getUsername());
         //配置用户的角色，默认都是普通用户
         String[] roles = new String[]{"2"};
         // 向role_user中间表插入关联数据
@@ -83,7 +86,6 @@ public class UserService implements UserDetailsService {
     }
 
     /**
-     *
      * @param email
      * @return
      */
@@ -93,6 +95,7 @@ public class UserService implements UserDetailsService {
 
     /**
      * 通过昵称查询用户
+     *
      * @param nickname
      * @return
      */
@@ -103,6 +106,7 @@ public class UserService implements UserDetailsService {
 
     /**
      * 获取所有用户角色
+     *
      * @return
      */
     @Cacheable(cacheNames = "Role")
@@ -112,6 +116,7 @@ public class UserService implements UserDetailsService {
 
     /**
      * 设置用户是否可用
+     *
      * @param enabled
      * @param uid
      * @return
@@ -122,6 +127,7 @@ public class UserService implements UserDetailsService {
 
     /**
      * 通过用户id删除用户
+     *
      * @param uid
      * @return
      */
@@ -131,6 +137,7 @@ public class UserService implements UserDetailsService {
 
     /**
      * 根据用户id来更新用户的角色
+     *
      * @param rids
      * @param id
      * @return
@@ -142,6 +149,7 @@ public class UserService implements UserDetailsService {
 
     /**
      * 通过id查询用户
+     *
      * @param id
      * @return
      */

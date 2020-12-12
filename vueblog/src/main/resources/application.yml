@@ -24,8 +24,8 @@ shiro-redis:
 #  jwt配置
 markerhub:
   jwt:
-#    加密秘钥
+    #    加密秘钥
     secret: f4e2e52034348f86b67cde581c0f9eb5
-#    token有效期
+    #    token有效期
     expire: 604800
     header: Authorization

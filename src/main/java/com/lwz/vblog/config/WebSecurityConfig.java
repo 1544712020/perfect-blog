@@ -36,8 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     使用userDetailsService来配置用户信息
-     *
+     * 使用userDetailsService来配置用户信息
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -52,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/category/all").authenticated()
                 // /admin/**的URL都需要有超级管理员角色，如果使用.hasAuthority()方法来配置，需要在参数中加上ROLE_,
                 // 如下.hasAuthority("ROLE_超级管理员")
-                .antMatchers("/admin/**","/reg").hasRole("超级管理员")
+                .antMatchers("/admin/**", "/reg").hasRole("超级管理员")
                 .anyRequest().authenticated()//其他的路径都是登录后即可访问
                 .and()
                 .formLogin()
@@ -100,7 +99,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/blogimg/**","/index.html","/static/**");
+        web.ignoring().antMatchers("/blogimg/**", "/index.html", "/static/**");
         /* 配置Spring Security以允许无需身份验证即可访问Swagger URL */
         web.ignoring().antMatchers("/v2/api-docs",
                 "/configuration/ui",
@@ -111,8 +110,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     *
-     注入自定义的AccessDeniedHandler（认证被拒绝）
+     * 注入自定义的AccessDeniedHandler（认证被拒绝）
      */
     @Bean
     AccessDeniedHandler getAccessDeniedHandler() {

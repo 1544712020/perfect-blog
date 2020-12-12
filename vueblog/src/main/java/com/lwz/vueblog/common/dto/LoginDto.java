@@ -13,12 +13,16 @@ import java.io.Serializable;
 @Data
 public class LoginDto implements Serializable {
 
-    /** 用于数据校验*/
-    @NotBlank(message = "昵称不能为空")
-    private String username;
+  /**
+   * 用于数据校验
+   */
+  @NotBlank(message = "昵称不能为空")
+  private String username;
 
-    /** 用于数据校验*/
-    @NotBlank(message = "密码不能为空")
-    private String password;
+  /**
+   * 用于数据校验
+   */
+  @NotBlank(message = "密码不能为空")
+  private String password;
 
 }

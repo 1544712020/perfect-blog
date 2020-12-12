@@ -2,6 +2,7 @@ package com.lwz.vueblog.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lwz.vueblog.entity.Blog;
+
 import java.util.List;
 
 /**
@@ -12,6 +13,6 @@ import java.util.List;
  */
 public interface BlogService extends IService<Blog> {
 
-    public List<Blog> queryAll(Blog blog);
+  public List<Blog> queryAll(Blog blog);
 
 }

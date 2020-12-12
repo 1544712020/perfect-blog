@@ -1,0 +1,31 @@
+#################################### common config : ####################################
+spring:
+  application:
+    name: vueblog
+  datasource:
+    url: jdbc:mysql:///vueblog?characterEncoding=UTF-8&useUnicode=true&useSSL=true&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 应用服务web访问端口
+server:
+  port: 8081
+
+#  MybatisPlus的mapper文件配置，用于指定mapper文件所在的位置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Dao.xml
+
+shiro-redis:
+  enabled: true
+  redis-manager:
+    host: 127.0.0.1:6379
+
+#  jwt配置
+markerhub:
+  jwt:
+#    加密秘钥
+    secret: f4e2e52034348f86b67cde581c0f9eb5
+#    token有效期
+    expire: 604800
+    header: Authorization

@@ -30,6 +30,7 @@ public class AdminController {
 
     /**
      * 获取回收站中的文章
+     *
      * @param page
      * @param count
      * @param keywords
@@ -51,6 +52,7 @@ public class AdminController {
 
     /**
      * 批量更新文章状态
+     *
      * @param aids
      * @param state
      * @return

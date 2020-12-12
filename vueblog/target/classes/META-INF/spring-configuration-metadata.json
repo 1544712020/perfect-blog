@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "name": "markerhub.jwt",
+      "type": "com.lwz.vueblog.util.JwtUtils",
+      "sourceType": "com.lwz.vueblog.util.JwtUtils"
+    }
+  ],
+  "properties": [
+    {
+      "name": "markerhub.jwt.expire",
+      "type": "java.lang.Long",
+      "sourceType": "com.lwz.vueblog.util.JwtUtils",
+      "defaultValue": 0
+    },
+    {
+      "name": "markerhub.jwt.header",
+      "type": "java.lang.String",
+      "sourceType": "com.lwz.vueblog.util.JwtUtils"
+    },
+    {
+      "name": "markerhub.jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.lwz.vueblog.util.JwtUtils"
+    }
+  ],
+  "hints": []
+}

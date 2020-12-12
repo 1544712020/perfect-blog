@@ -25,25 +25,25 @@ import java.io.Serializable;
 @Accessors(chain = true)
 @TableName("m_blog")
 public class Blog implements Serializable {
-    private static final long serialVersionUID = -66393507787673840L;
+  private static final long serialVersionUID = -66393507787673840L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+  @TableId(value = "id", type = IdType.AUTO)
+  private Long id;
 
-    private Long userId;
+  private Long userId;
 
-    @NotBlank(message = "标题不能为空")
-    private String title;
+  @NotBlank(message = "标题不能为空")
+  private String title;
 
-    @NotBlank(message = "摘要不能为空")
-    private String description;
+  @NotBlank(message = "摘要不能为空")
+  private String description;
 
-    @NotBlank(message = "内容不能为空")
-    private String content;
+  @NotBlank(message = "内容不能为空")
+  private String content;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date created;
-    
-    private Integer status;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  private Date created;
+
+  private Integer status;
 
 }

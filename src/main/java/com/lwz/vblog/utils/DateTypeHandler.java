@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * @author 15447
- *
+ * <p>
  * TypeHandler作用：将预处理语句中传入的参数从javaType(Java类型)转换为jdbcType(JDBC类型)，
  * 或者从数据库中取出结果时将jdbcType转换为javaType
  * @MappedJdbcTypes注解配置jdbc类型

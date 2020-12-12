@@ -37,6 +37,7 @@ public class ArticleController {
 
     /**
      * 添加新文章/更新文章内容
+     *
      * @param article
      * @return
      */
@@ -54,6 +55,7 @@ public class ArticleController {
 
     /**
      * 通过文章state获取文章数量和文章List集合
+     *
      * @param state
      * @param page
      * @param count
@@ -68,8 +70,8 @@ public class ArticleController {
                                                  @RequestParam(value = "page", defaultValue = "1") Integer page,
                                                  @RequestParam(value = "count", defaultValue = "6") Integer count,
                                                  String keywords) {
-        int totalCount = articleService.getArticleCountByState(state, Util.getCurrentUser().getId(),keywords);
-        List<Article> articles = articleService.getArticleByState(state, page, count,keywords);
+        int totalCount = articleService.getArticleCountByState(state, Util.getCurrentUser().getId(), keywords);
+        List<Article> articles = articleService.getArticleByState(state, page, count, keywords);
         Map<String, Object> map = new HashMap<>();
         // 将文章总数存储到map种
         map.put("totalCount", totalCount);
@@ -80,6 +82,7 @@ public class ArticleController {
 
     /**
      * 通过id获取文章
+     *
      * @param aid
      * @return
      */
@@ -92,6 +95,7 @@ public class ArticleController {
 
     /**
      * 更新文章状态
+     *
      * @param aids
      * @param state
      * @return
@@ -108,6 +112,7 @@ public class ArticleController {
 
     /**
      * 将文章从回收站还原
+     *
      * @param articleId
      * @return
      */
@@ -123,11 +128,12 @@ public class ArticleController {
 
     /**
      * 获取文章访问数据
+     *
      * @return
      */
     @ApiOperation(value = "获取当前用户的文章访问量")
     @RequestMapping(value = "/dataStatistics", method = RequestMethod.GET)
-    public Map<String,Object> dataStatistics() {
+    public Map<String, Object> dataStatistics() {
         Map<String, Object> map = new HashMap<>();
         List<String> categories = articleService.getCategories();
         List<Integer> dataStatistics = articleService.getDataStatistics();
@@ -140,11 +146,11 @@ public class ArticleController {
      * 图片上传
      */
     @ApiOperation(value = "文章图片上传")
-    @ApiImplicitParams({@ApiImplicitParam(name = "request", value = "HttpServletRequest(http请求)"), @ApiImplicitParam(name = "img",value = "MultipartFile(图片)")})
+    @ApiImplicitParams({@ApiImplicitParam(name = "request", value = "HttpServletRequest(http请求)"), @ApiImplicitParam(name = "img", value = "MultipartFile(图片)")})
     @RequestMapping(value = "/uploadimg", method = RequestMethod.POST)
     public RespBean uploadImg(HttpServletRequest request, MultipartFile img) {
         // StringBuffer用于拼接字符串
-        StringBuffer url =new StringBuffer();
+        StringBuffer url = new StringBuffer();
         // 设置文件路径
         String filePath = "/blogimg/" + sdf.format(new Date());
         //设置图片存储目录路径

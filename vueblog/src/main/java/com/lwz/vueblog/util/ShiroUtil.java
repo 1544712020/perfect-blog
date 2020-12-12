@@ -11,9 +11,9 @@ import org.apache.shiro.SecurityUtils;
 
 public class ShiroUtil {
 
-    public static AccountProfile getProfile() {
-        // 获取Subject单例对象
-        return (AccountProfile) SecurityUtils.getSubject().getPrincipal();
-    }
+  public static AccountProfile getProfile() {
+    // 获取Subject单例对象
+    return (AccountProfile) SecurityUtils.getSubject().getPrincipal();
+  }
 
 }

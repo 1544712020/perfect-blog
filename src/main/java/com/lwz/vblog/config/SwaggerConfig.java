@@ -11,6 +11,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 /**
  * Swagger配置类
+ *
  * @author Lw中
  * @date 2020/8/24 16:20
  */

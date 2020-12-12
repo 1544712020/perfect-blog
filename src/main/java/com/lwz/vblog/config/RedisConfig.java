@@ -19,6 +19,7 @@ import java.lang.reflect.Method;
 
 /**
  * Redis配置类
+ *
  * @author Lw中
  * @date 2020/9/4 13:44
  */
@@ -30,6 +31,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     /**
      * 在缓存对象集合中，缓存是以key-value形式保存的
      * 如果没有指定缓存中的key，springboot就会通过SimpleGenerator来生成key
+     *
      * @return
      */
     @Override
@@ -53,6 +55,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     /**
      * 缓存管理器：开启spring对缓存的支持
      * SuppressWarnings：告诉编译器忽略指定的警告，不用在编译完成后出现警告信息
+     *
      * @param connectionFactory
      * @return
      */
@@ -81,6 +84,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     /**
      * 如果没有这个bean，那么redis可视化工具中的中文会出现乱码
+     *
      * @param factory
      * @return
      */

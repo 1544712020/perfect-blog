@@ -17,6 +17,7 @@ public interface UserMapper {
 
     /**
      * 通过username加载用户信息·
+     *
      * @param username
      * @return User
      */
@@ -24,6 +25,7 @@ public interface UserMapper {
 
     /**
      * 添加用户
+     *
      * @param user
      * @return Long
      */
@@ -31,6 +33,7 @@ public interface UserMapper {
 
     /**
      * 通过用户id更新用户电子邮件
+     *
      * @param email
      * @param id
      * @return int
@@ -39,6 +42,7 @@ public interface UserMapper {
 
     /**
      * 通过用户昵称获取用户信息
+     *
      * @param nickname
      * @return List<User>
      */
@@ -46,12 +50,14 @@ public interface UserMapper {
 
     /**
      * 获取所有用户角色
+     *
      * @return List<Role>
      */
     List<Role> getAllRole();
 
     /**
      * 通过用户id更新用户的权限
+     *
      * @param enabled
      * @param uid
      * @return int
@@ -60,20 +66,23 @@ public interface UserMapper {
 
     /**
      * 通过id删除用户
+     *
      * @param uid
      * @return int
      */
     int deleteUserById(Long uid);
 
     /**
-     *  通过id删除用户角色
+     * 通过id删除用户角色
+     *
      * @param id
      * @return int
      */
     int deleteUserRolesByUid(Long id);
 
     /**
-     *  通过用户id设置用户角色
+     * 通过用户id设置用户角色
+     *
      * @param rids
      * @param id
      * @return int
@@ -82,6 +91,7 @@ public interface UserMapper {
 
     /**
      * 通过id获取用户
+     *
      * @param id
      * @return
      */

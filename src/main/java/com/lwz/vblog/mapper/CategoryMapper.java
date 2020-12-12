@@ -17,12 +17,14 @@ public interface CategoryMapper {
 
     /**
      * 获取所有的文章类别
+     *
      * @return
      */
     List<Category> getAllCategories();
 
     /**
      * 通过ids数组批量删除文章类别
+     *
      * @param ids
      * @return
      */
@@ -30,6 +32,7 @@ public interface CategoryMapper {
 
     /**
      * 通过category更新文章类别
+     *
      * @param category
      * @return
      */
@@ -37,6 +40,7 @@ public interface CategoryMapper {
 
     /**
      * 添加文章类别
+     *
      * @param category
      * @return
      */

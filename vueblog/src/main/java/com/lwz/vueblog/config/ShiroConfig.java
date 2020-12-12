@@ -28,62 +28,70 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
-    @Resource
-    JwtFilter jwtFilter;
+  @Resource
+  JwtFilter jwtFilter;
 
-    /** 给SessionManager注入redis，保存session数据至redis中*/
-    @Bean
-    public SessionManager sessionManager(RedisSessionDAO redisSessionDAO) {
-        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
+  /**
+   * 给SessionManager注入redis，保存session数据至redis中
+   */
+  @Bean
+  public SessionManager sessionManager(RedisSessionDAO redisSessionDAO) {
+    DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
 
-        // inject redisSessionDAO
-        sessionManager.setSessionDAO(redisSessionDAO);
-        return sessionManager;
-    }
+    // inject redisSessionDAO
+    sessionManager.setSessionDAO(redisSessionDAO);
+    return sessionManager;
+  }
 
-    /** 给SecurityManager注入SessionManager、accountRealm、redis缓存，保存权限数据至redis中*/
-    @Bean
-    public DefaultWebSecurityManager securityManager(AccountRealm accountRealm,
-                                                     SessionManager sessionManager,
-                                                     RedisCacheManager redisCacheManager) {
+  /**
+   * 给SecurityManager注入SessionManager、accountRealm、redis缓存，保存权限数据至redis中
+   */
+  @Bean
+  public DefaultWebSecurityManager securityManager(AccountRealm accountRealm,
+                                                   SessionManager sessionManager,
+                                                   RedisCacheManager redisCacheManager) {
 
-        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager(accountRealm);
+    DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager(accountRealm);
 
-        //inject sessionManager
-        securityManager.setSessionManager(sessionManager);
+    //inject sessionManager
+    securityManager.setSessionManager(sessionManager);
 
-        // inject redisCacheManager
-        securityManager.setCacheManager(redisCacheManager);
-        return securityManager;
-    }
+    // inject redisCacheManager
+    securityManager.setCacheManager(redisCacheManager);
+    return securityManager;
+  }
 
-    /** 设置过滤链，添加被拦截的路径*/
-    @Bean
-    public ShiroFilterChainDefinition shiroFilterChainDefinition() {
-        DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
+  /**
+   * 设置过滤链，添加被拦截的路径
+   */
+  @Bean
+  public ShiroFilterChainDefinition shiroFilterChainDefinition() {
+    DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
 
-        Map<String, String> filterMap = new LinkedHashMap<>();
+    Map<String, String> filterMap = new LinkedHashMap<>();
 
-        filterMap.put("/**", "jwt");
-        chainDefinition.addPathDefinitions(filterMap);
-        return chainDefinition;
-    }
+    filterMap.put("/**", "jwt");
+    chainDefinition.addPathDefinitions(filterMap);
+    return chainDefinition;
+  }
 
-    /** 设置过滤器，添加过滤链以及安全管理*/
-    @Bean("shiroFilterFactoryBean")
-    public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager,
-                                                         ShiroFilterChainDefinition shiroFilterChainDefinition) {
-        ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
-        shiroFilter.setSecurityManager(securityManager);
+  /**
+   * 设置过滤器，添加过滤链以及安全管理
+   */
+  @Bean("shiroFilterFactoryBean")
+  public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager,
+                                                       ShiroFilterChainDefinition shiroFilterChainDefinition) {
+    ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
+    shiroFilter.setSecurityManager(securityManager);
 
-        Map<String, Filter> filters = new HashMap<>();
-        filters.put("jwt", jwtFilter);
-        shiroFilter.setFilters(filters);
+    Map<String, Filter> filters = new HashMap<>();
+    filters.put("jwt", jwtFilter);
+    shiroFilter.setFilters(filters);
 
-        Map<String, String> filterMap = shiroFilterChainDefinition.getFilterChainMap();
+    Map<String, String> filterMap = shiroFilterChainDefinition.getFilterChainMap();
 
-        shiroFilter.setFilterChainDefinitionMap(filterMap);
-        return shiroFilter;
-    }
+    shiroFilter.setFilterChainDefinitionMap(filterMap);
+    return shiroFilter;
+  }
 
 }

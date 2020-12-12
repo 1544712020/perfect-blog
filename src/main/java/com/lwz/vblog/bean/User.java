@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @author Lw中
  * @date 2020/7/21 14:18
- *
+ * <p>
  * User继承SpringSecurity包下的UserDetails接口
  * 实现该接口来定义自己认证用户的获取方式
  */
@@ -39,6 +39,7 @@ public class User implements UserDetails {
     public String getUsername() {
         return username;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -47,6 +48,7 @@ public class User implements UserDetails {
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -55,12 +57,12 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
+
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
     /**
-     *
      * 此类实现了UserDetails接口，重写了相应的方法
      * isAccountNonExpired：账户是否过期
      * isAccountNonLocked：账户是否加锁

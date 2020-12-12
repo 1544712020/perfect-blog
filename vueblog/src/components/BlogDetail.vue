@@ -28,34 +28,35 @@
   </el-row>
 </template>
 <script>
-  import {getRequest} from '../utils/api'
-  export default{
-    methods: {
-      goBack(){
-        this.$router.go(-1);
+import {getRequest} from '../utils/api'
+
+export default {
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    }
+  },
+  mounted: function () {
+    var aid = this.$route.query.aid;
+    this.activeName = this.$route.query.an
+    var _this = this;
+    this.loading = true;
+    getRequest("/article/" + aid).then(resp => {
+      if (resp.status == 200) {
+        _this.article = resp.data;
       }
-    },
-    mounted: function () {
-      var aid = this.$route.query.aid;
-      this.activeName = this.$route.query.an
-      var _this = this;
-      this.loading = true;
-      getRequest("/article/" + aid).then(resp=> {
-        if (resp.status == 200) {
-          _this.article = resp.data;
-        }
-        _this.loading = false;
-      }, resp=> {
-        _this.loading = false;
-        _this.$message({type: 'error', message: '页面加载失败!'});
-      });
-    },
-    data(){
-      return {
-        article: {},
-        loading: false,
-        activeName: ''
-      }
+      _this.loading = false;
+    }, resp => {
+      _this.loading = false;
+      _this.$message({type: 'error', message: '页面加载失败!'});
+    });
+  },
+  data() {
+    return {
+      article: {},
+      loading: false,
+      activeName: ''
     }
   }
+}
 </script>
