@@ -78,6 +78,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         out.close();
                     }
                 })
+                // 设置请求登录接口路径
                 .loginProcessingUrl("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
