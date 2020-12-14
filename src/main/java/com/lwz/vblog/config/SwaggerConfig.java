@@ -31,7 +31,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title(" RESTful APIs")
+                .title(" 接口文档 ")
                 .description("RESTful APIs")
                 .termsOfServiceUrl("http://localhost:8080/")
                 .contact("long")
