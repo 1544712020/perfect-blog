@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 @MappedJdbcTypes(JdbcType.DATE)
 @MappedTypes(String.class)
 public class DateTypeHandler implements TypeHandler<String> {
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     @Override
     public void setParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException {
