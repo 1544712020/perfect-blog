@@ -36,6 +36,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
+     * 注入自定义的AccessDeniedHandler（认证被拒绝）
+     */
+    @Bean
+    AccessDeniedHandler getAccessDeniedHandler() {
+        return new AuthenticationAccessDeniedHandler();
+    }
+
+    /**
      * 使用userDetailsService来配置用户信息
      */
     @Override
@@ -110,11 +118,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/webjars/**");
     }
 
-    /**
-     * 注入自定义的AccessDeniedHandler（认证被拒绝）
-     */
-    @Bean
-    AccessDeniedHandler getAccessDeniedHandler() {
-        return new AuthenticationAccessDeniedHandler();
-    }
 }
