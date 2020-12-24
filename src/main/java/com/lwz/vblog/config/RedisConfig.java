@@ -68,20 +68,6 @@ public class RedisConfig extends CachingConfigurerSupport {
         return cacheManager;
     }
 
-//    @Bean
-//    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
-//        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-//        redisTemplate.setConnectionFactory(factory);
-//        return redisTemplate;
-//    }
-//
-//    @Bean
-//    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory factory) {
-//        StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
-//        stringRedisTemplate.setConnectionFactory(factory);
-//        return stringRedisTemplate;
-//    }
-
     /**
      * 如果没有这个bean，那么redis可视化工具中的中文会出现乱码
      *
@@ -102,5 +88,18 @@ public class RedisConfig extends CachingConfigurerSupport {
         return template;
     }
 
+//    @Bean
+//    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
+//        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+//        redisTemplate.setConnectionFactory(factory);
+//        return redisTemplate;
+//    }
+//
+//    @Bean
+//    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory factory) {
+//        StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
+//        stringRedisTemplate.setConnectionFactory(factory);
+//        return stringRedisTemplate;
+//    }
 
 }
