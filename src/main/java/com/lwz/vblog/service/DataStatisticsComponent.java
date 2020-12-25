@@ -22,6 +22,7 @@ public class DataStatisticsComponent {
      * 下面的是每天的零点，第一秒执行下面的定时任务
      */
     @Scheduled(cron = "1 0 0 * * ?")
+//    @Scheduled(fixedRate = 5000)
     public void pvStatisticsPerDay() {
         articleMapper.pvStatisticsPerDay();
     }
