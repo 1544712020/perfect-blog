@@ -6,6 +6,13 @@
         DELETE FROM article_tags WHERE aid=#{aid}
     </delete>
 
+    <delete id="deleteTagsByAid1">
+        DELETE FROM tags WHERE id IN
+        <foreach collection="ids" separator="," open="(" close=")" item="id">
+            #{id}
+        </foreach>
+    </delete>
+
     <insert id="saveTags">
         INSERT IGNORE INTO tags(tagName) VALUES
         <foreach collection="tags" item="tag" separator=",">
@@ -26,5 +33,17 @@
             (#{aid},#{tagId})
         </foreach>
     </insert>
+
+    <update id="updateTagById" parameterType="org.lwz.bean.Tags">
+        UPDATE tags SET tagName = #{tagName} WHERE id=#{id}
+    </update>
+
+    <insert id="saveTags1" parameterType="org.lwz.bean.Tags">
+        INSERT INTO tags SET tagName=#{tagName}
+    </insert>
+
+    <select id="getAllTags" resultType="org.lwz.bean.Tags">
+        select * from tags;
+    </select>
 
 </mapper>

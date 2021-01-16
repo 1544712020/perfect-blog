@@ -1,5 +1,6 @@
 package com.lwz.vblog.mapper;
 
+import com.lwz.vblog.bean.Tags;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,6 +16,8 @@ public interface TagsMapper {
 
     int deleteTagsByAid(Long aid);
 
+    int deleteTagsByAid1(@Param("ids") String[] ids);
+
     /**
      * 添加标签
      *
@@ -22,6 +25,8 @@ public interface TagsMapper {
      * @return
      */
     int saveTags(@Param("tags") String[] tags);
+
+    int saveTags1(Tags tagName);
 
     /**
      * 通过标签名称获取标签id
@@ -39,5 +44,9 @@ public interface TagsMapper {
      * @return
      */
     int saveTags2ArticleTags(@Param("tagIds") List<Long> tagIds, @Param("aid") Long aid);
+
+    List<Tags> getAllTags();
+
+    int updateTagById(Tags tags);
 
 }
