@@ -8,6 +8,7 @@ import DataCharts from '@/components/DataCharts'
 import PostArticle from '@/components/PostArticle'
 import UserMana from '@/components/UserMana'
 import BlogDetail from '@/components/BlogDetail'
+import TagMana from "../components/TagMana";
 
 Vue.use(Router)
 
@@ -83,6 +84,18 @@ export default new Router({
           iconCls: 'fa fa-reorder',
           name: '栏目管理',
           component: CateMana
+        }
+      ]
+    },  {
+      path: '/home',
+      component: Home,
+      name: '标签管理',
+      children: [
+        {
+          path: '/tagMana',
+          iconCls: 'fa fa-reorder',
+          name: '标签管理',
+          component: TagMana
         }
       ]
     }, {

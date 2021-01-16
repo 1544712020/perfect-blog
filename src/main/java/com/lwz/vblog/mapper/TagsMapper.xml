@@ -34,15 +34,15 @@
         </foreach>
     </insert>
 
-    <update id="updateTagById" parameterType="org.lwz.bean.Tags">
+    <update id="updateTagById" parameterType="com.lwz.vblog.bean.Tags">
         UPDATE tags SET tagName = #{tagName} WHERE id=#{id}
     </update>
 
-    <insert id="saveTags1" parameterType="org.lwz.bean.Tags">
+    <insert id="saveTags1" parameterType="com.lwz.vblog.bean.Tags">
         INSERT INTO tags SET tagName=#{tagName}
     </insert>
 
-    <select id="getAllTags" resultType="org.lwz.bean.Tags">
+    <select id="getAllTags" resultType="com.lwz.vblog.bean.Tags">
         select * from tags;
     </select>
 
