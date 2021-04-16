@@ -136,6 +136,7 @@
             </resource>
         </resources>
         <plugins>
+            <!-- 插件记得添加版本号 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
